@@ -1,6 +1,6 @@
 from flask import Flask
-from lib.menu import menu
-from lib.utils import utils
+from lib.menu.menu import menu
+from lib.utils.utils import utils
 app = Flask(__name__)
 
 # Init blueprints
