@@ -1,14 +1,12 @@
 from flask import Flask
 from lib.menu.menu import menu
-from lib.utils.utils import utils
-from pymongo import MongoClient
-import csv
+from lib.ratings.ratings import ratings
 
 app = Flask(__name__)
 
 # Initialize blueprints
 app.register_blueprint(menu, url_prefix='/menu')
-app.register_blueprint(utils, url_prefix='/utils')
+app.register_blueprint(ratings, url_prefix='/ratings')
 
 @app.route('/')
 def login():
