@@ -23,7 +23,13 @@ menu_items = db.menu_items
 
 summies_menu = csv.DictReader(open("summies.csv"))
 for row in summies_menu:
+	row["rating_avg"] = int(row["rating_avg"])
+	row["rater_count"] = int(row["rater_count"])
+	row["price"] = float(row["price"])
+	row["side"] = bool(row["side"])
+	row["extra"] = int(row["extra"])
 	menu_items_id = menu_items.insert(row)
+	print row
 
 @menu.route('', methods = ['GET'])
 def index():
