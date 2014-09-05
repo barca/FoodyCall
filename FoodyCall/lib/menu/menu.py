@@ -1,6 +1,12 @@
 from flask import Blueprint
+from flask import json
+from flask import jsonify
+from flask import make_response
+from flask import request
 from pymongo import MongoClient
 import csv
+
+
 # Create Blueprint
 menu = Blueprint('menu', __name__, template_folder='templates')
 
@@ -19,6 +25,12 @@ summies_menu = csv.DictReader(open("summies.csv"))
 for row in summies_menu:
 	menu_items_id = menu_items.insert(row)
 
-@menu.route('')
+@menu.route('', methods = ['GET'])
 def index():
-    return "Food goes here"
+	if request.method == "GET":
+	 	ret = []
+		for item in menu_items.find():
+	 		item['_id'] = str(item['_id'])
+	 		ret.append(item)
+
+	 	return json.dumps(ret)
