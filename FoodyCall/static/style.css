@@ -82,7 +82,20 @@ label {
     border: 3px solid white;
     margin-bottom: 20px;
 }
-
+.pure-button-back {
+    font-size: 10px; 
+    border: 1.5px solid white; 
+    position:fixed; 
+    top:15px; left: 10px;
+    background-color: #B05353;
+    color: white;
+    font-weight: bold;
+    padding: .5em .5em;
+    border-radius: 5px;
+    line-height: 1em;
+    border-radius: 5px;  
+    margin-bottom: 20px;
+}
 a.pure-button-primary {
     background: white;
     color: #1f8dd6;
