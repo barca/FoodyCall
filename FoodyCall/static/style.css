@@ -75,11 +75,12 @@ label {
     color: white;
     font-size: 20px;
     font-weight: bold;
-    border: 3px solid white;
     padding: .5em .5em;
     border-radius: 5px;
     line-height: 1em;
-    border-radius: 5px;
+    border-radius: 5px;  
+    border: 3px solid white;
+    margin-bottom: 20px;
 }
 
 a.pure-button-primary {
@@ -166,9 +167,8 @@ a.pure-button-primary {
 /* This is the main heading that appears on the blue section */
 .splash-head {
     color: white;
-    font-size: 30px;
+    font-size: 35px;
     font-weight: bold;
-    border: 3px dashed white;
     padding: .5em .5em;
     border-radius: 5px;
     line-height: 1em;
@@ -176,13 +176,30 @@ a.pure-button-primary {
 
 /* This is the subheading that appears on the blue section */
 .splash-subhead {
-    color: #1A1A1A;
-    font-size: 30px;
+    color: white;
+    font-size: 20px;
     font-weight: bold;
     letter-spacing: 0.05em;
     opacity: 0.8;
 }
 
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  color: yellow;
+  font-size: 30px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 20 -1px black;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
 /*
  * -- CONTENT STYLES --
  * This represents the content area (everything below the blue section)
