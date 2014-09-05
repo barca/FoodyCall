@@ -1,18 +1,15 @@
 from flask import Flask
+from lib.menu import menu
+from lib.utils import utils
 app = Flask(__name__)
 
+# Init blueprints
+app.register_blueprint(menu, url_prefix='/menu')
+app.register_blueprint(utils, url_prefix='/utils')
 
 @app.route('/')
 def login():
     return "Enter your cell # here!"
-
-@app.route('/menu')
-def menu():
-    return "Food goes here"
-
-@app.route('/sides')
-def sides():
-    return "Sides go here"
 
 if __name__ == '__main__':
     app.run()
