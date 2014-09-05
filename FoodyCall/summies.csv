@@ -1,37 +1,37 @@
-item,price
-Regular burger,6.99
-Cheddar cheeseburger,6.99
-Cheddar bacon cheeseburger,6.99
-Regular turkey burger,6.99
-Cheddar turkey cheeseburger,6.99
-Cheddar turkey bacon cheeseburger,6.99
-Regular vegan burger,6.99
-Cheddar turkey cheeseburger,6.99
-Cheddar turkey bacon cheeseburger,6.99
-Ultimate grilled chicken breast,6.99
-Chicken tender platter,6.99
-Chicken tender wrap,6.99
-Falafel sandwich,6.99
-Falafel platter,6.99
-Beef kebab sandwich,6.99
-Chicken kebab sandwich,6.99
-Kebab platter,6.99
-Tabboulah,6.99
-Tangiers cobb salad,6.99
-Chopped salad,6.99
-Chopped salad wrap,6.99 
-Classic chicken caesar salad,6.99
-Classic chicken caesar salad wrap,6.99
-Summerfields salad,6.99
-Summerfields salad wrap,6.99
-Caprese salad,6.99
-Caprese salad wrap,6.99
-Rice and beans,2.99
-Chips and salsa,2.99
-French fries,2.99
-Shirazi salad,2.99
-Onion rings,3.99 add $1.00 with bundle
-Side house salad,3.99 add $1.00 with bundle 
-Side cut fruit,3.99 add $1.00 with bundle 
-Side credit,3.99 add $1.00 with bundle 
-Hummus and pita,3.99 add $1.00 with bundle
+item,price,rating_avg,description,rater_count,filter
+Regular burger,6.99,0,description,0,none
+Cheddar cheeseburger,6.99,0,description,0,none
+Cheddar bacon cheeseburger,6.99,0,description,0,none
+Regular turkey burger,6.99,0,description,0,none
+Cheddar turkey cheeseburger,6.99,0,description,0,none
+Cheddar turkey bacon cheeseburger,6.99,0,description,0,none
+Regular vegan burger,6.99,0,description,0,none
+Cheddar turkey cheeseburger,6.99,0,description,0,none
+Cheddar turkey bacon cheeseburger,6.99,0,description,0,none
+Ultimate grilled chicken breast,6.99,0,description,0,none
+Chicken tender platter,6.99,0,description,0,none
+Chicken tender wrap,6.99,0,description,0,none
+Falafel sandwich,6.99,0,description,0,none
+Falafel platter,6.99,0,description,0,none
+Beef kebab sandwich,6.99,0,description,0,none
+Chicken kebab sandwich,6.99,0,description,0,none
+Kebab platter,6.99,0,description,0,none
+Tabboulah,6.99,0,description,0,none
+Tangiers cobb salad,6.99,0,description,0,none
+Chopped salad,6.99,0,description,0,none
+Chopped salad wrap,6.99,0,description,0,none 
+Classic chicken caesar salad,6.99,0,description,0,none
+Classic chicken caesar salad wrap,6.99,0,description,0,none
+Summerfields salad,6.99,0,description,0,none
+Summerfields salad wrap,6.99,0,description,0,none
+Caprese salad,6.99,0,description,0,none
+Caprese salad wrap,6.99,0,description,0,none
+Rice and beans,2.99,0,description,0,none
+Chips and salsa,2.99,0,description,0,none
+French fries,2.99,0,description,0,none
+Shirazi salad,2.99,0,description,0,none
+Onion rings,3.99 add $1.00 with bundle,0,description,0,none
+Side house salad,3.99 add $1.00 with bundle,0,description,0,none
+Side cut fruit,3.99 add $1.00 with bundle,0,description,0,none
+Side credit,3.99 add $1.00 with bundle,0,description,0,none
+Hummus and pita,3.99 add $1.00 with bundle,0,description,0,none
