@@ -103,7 +103,6 @@ a.pure-button-primary {
 .home-menu.pure-menu-open {
     background: #660000;
     font-size: 15px;
-    font-family: Roboto;
 }
 .pure-menu.pure-menu-open.pure-menu-fixed {
     /* Fixed menus normally have a border at the bottom. */
@@ -114,8 +113,10 @@ a.pure-button-primary {
 
 .home-menu .pure-menu-heading {
     color: white;
-    font-weight: 400;
+    font-family: "Helvetica Neue" !important;
+    font-weight: 100 !important;
     font-size: 180%;
+    text-transform: none;
     text-shadow: 2px 2px black;
 }
 
@@ -164,11 +165,10 @@ a.pure-button-primary {
 
 /* This is the main heading that appears on the blue section */
 .splash-head {
-    background-color: silver;
     color: white;
     font-size: 30px;
     font-weight: bold;
-    border: 3px solid white;
+    border: 3px dashed white;
     padding: .5em .5em;
     border-radius: 5px;
     line-height: 1em;
@@ -201,7 +201,6 @@ a.pure-button-primary {
 /* This is the class used for the main content headers (<h2>) */
 .content-head {
     font-weight: 400;
-    text-transform: uppercase;
     letter-spacing: 0.1em;
     margin: 2em 0 1em;
 }
