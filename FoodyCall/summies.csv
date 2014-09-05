@@ -5,7 +5,7 @@ Cheddar bacon cheeseburger,6.99,0,description,0,none,false,0
 Regular turkey burger,6.99,0,description,0,none,false,0
 Cheddar turkey cheeseburger,6.99,0,description,0,none,false,0
 Cheddar turkey bacon cheeseburger,6.99,0,description,0,none,false,0
-Regular vegan burger,6.99,0,description,0,none,false,0
+Regular vegan burger,6.99,0,description,0,vegan,false,0
 Cheddar turkey cheeseburger,6.99,0,description,0,none,false,0
 Cheddar turkey bacon cheeseburger,6.99,0,description,0,none,false,0
 Ultimate grilled chicken breast,6.99,0,description,0,none,false,0
@@ -24,7 +24,7 @@ Classic chicken caesar salad,6.99,0,description,0,none,false,0
 Classic chicken caesar salad wrap,6.99,0,description,0,none,false,0
 Summerfields salad,6.99,0,description,0,none,false,0
 Summerfields salad wrap,6.99,0,description,0,none,false,0
-Caprese salad,6.99,0,description,0,none,false,0
+Caprese salad,6.99,0,description,0,vegan:gluten-free,false,0
 Caprese salad wrap,6.99,0,description,0,none,false,0
 Rice and beans,2.99,0,description,0,none,true,0
 Chips and salsa,2.99,0,description,0,none,true,0

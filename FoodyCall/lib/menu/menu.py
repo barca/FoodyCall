@@ -28,6 +28,11 @@ for row in summies_menu:
 	row["price"] = float(row["price"])
 	row["side"] = bool(row["side"])
 	row["extra"] = int(row["extra"])
+	if row["filter"] == "none":
+		row["filter"] = []
+	else:
+		row["filter"] = row["filter"].split(":")
+
 	menu_items_id = menu_items.insert(row)
 	print row
 
