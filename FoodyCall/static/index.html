@@ -13,8 +13,8 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
   <!--[if lt IE 9]><script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script><![endif]-->
-  <script>
-  </script>
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.mask/0.9.0/jquery.mask.min.js"></script>
 </head>
 
 <body>
@@ -29,13 +29,14 @@
     <div class="splash">
       <form class="pure-form">
         <fieldset>
-        <input type="tel" placeholder="Enter your mobile phone number" required><br>
+        <input type="tel" id="tel" placeholder="Enter your mobile phone number" required><br>
         <button type="submit" class="pure-button-main">MAKE A FOODYCALL</button>
         </fieldset>
       </form>
+      <p></p>
       <form class="pure-form">
         <fieldset>
-          <button type="submit" class="pure-button-main">RATE THE MENU</button>
+          <button href="ratemenu.html" type="submit" class="pure-button-main">RATE THE MENU</button>
         </fieldset>
       </form>
     </div>
@@ -51,6 +52,11 @@
       <a href="http://weshack.com">WesHack 2014</a>.
     </div>
   </div>
+  <script>
+    $(document).ready(function() {
+      $('#tel').mask('(000) 000-0000');
+    });
+  </script>
 </body>
 
 </html>
