@@ -61,7 +61,7 @@ label {
 .pure-form input[type] {
     border: 2px solid #ddd;
     box-shadow: none;
-    font-size: 100%;
+    font-size: 150%;
     width: 100%;
     margin-bottom: 1em;
 }
@@ -70,10 +70,15 @@ label {
  * -- PURE BUTTON STYLES --
  * I want my pure-button elements to look a little different
  */
-.pure-button {
-    background-color: #1f8dd6;
+.pure-button-main {
+    background-color: #B05353;
     color: white;
-    padding: 0.5em 2em;
+    font-size: 20px;
+    font-weight: bold;
+    border: 3px solid white;
+    padding: .5em .5em;
+    border-radius: 5px;
+    line-height: 1em;
     border-radius: 5px;
 }
 
@@ -96,7 +101,9 @@ a.pure-button-primary {
     box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
 }
 .home-menu.pure-menu-open {
-    background: #c0392b;
+    background: #660000;
+    font-size: 15px;
+    font-family: Roboto;
 }
 .pure-menu.pure-menu-open.pure-menu-fixed {
     /* Fixed menus normally have a border at the bottom. */
@@ -108,7 +115,8 @@ a.pure-button-primary {
 .home-menu .pure-menu-heading {
     color: white;
     font-weight: 400;
-    font-size: 120%;
+    font-size: 180%;
+    text-shadow: 2px 2px black;
 }
 
 .home-menu .pure-menu-selected a {
@@ -132,13 +140,13 @@ a.pure-button-primary {
  */
 
 .splash-container {
-    background: #e74c3c;
+    background: #8C1717;
     z-index: 1;
     overflow: hidden;
     /* The following styles are required for the "scroll-over" effect */
     width: 100%;
-    height: 88%;
-    top: 0;
+    height: 100%;
+    top: -50px;
     left: 0;
     position: fixed !important;
 }
@@ -156,19 +164,21 @@ a.pure-button-primary {
 
 /* This is the main heading that appears on the blue section */
 .splash-head {
-    font-size: 20px;
-    font-weight: bold;
+    background-color: silver;
     color: white;
+    font-size: 30px;
+    font-weight: bold;
     border: 3px solid white;
-    padding: 1em 1.6em;
-    font-weight: 100;
+    padding: .5em .5em;
     border-radius: 5px;
     line-height: 1em;
 }
 
 /* This is the subheading that appears on the blue section */
 .splash-subhead {
-    color: white;
+    color: #1A1A1A;
+    font-size: 30px;
+    font-weight: bold;
     letter-spacing: 0.05em;
     opacity: 0.8;
 }
