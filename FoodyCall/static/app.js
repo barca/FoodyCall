@@ -35,7 +35,7 @@ var AppRouter = Backbone.Router.extend ({
 
       var itemstemplate = $('.second-container #items-template');
       var itemlist = $('.second-container .item-list');
-      var processed = _(data).where({side: true}).map(function (i) {
+      var processed = _(data).where({side: false}).map(function (i) {
         i.prev = 0;
         i.rating_avg = (Math.random() * 4 | 0) + 1.5;
         return i;
