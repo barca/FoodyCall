@@ -174,7 +174,34 @@ var AppRouter = Backbone.Router.extend ({
       setTimeout(cb, 2000);
     },
     'repeatLastOrder': function () {
-      console.log('Repeat last order');
+
+      $('.header>div').hide();
+      $('#fourth-header').show();
+
+      $('.first-container').addClass('flip');
+      setTimeout(function () {
+        $('.splash-container').hide();
+        $('.first-container').removeClass('flip');
+        $('.fourth-container').show();
+      }, 500);
+
+      var itemstemplate = $('.fourth-container #items-template');
+      var itemlist = $('.fourth-container .item-list');
+
+      var mainOrder = _(data).findWhere({_id: localStorage.mainOrder});
+      var sideOrder = _(data).findWhere({_id: localStorage.sideOrder});
+      itemlist.html(_.template(itemstemplate.html(), {
+        mainOrder: mainOrder.item,
+        sideOrder: sideOrder.item,
+        mainPrice: mainOrder.price,
+        sidePrice: sideOrder.price
+      }));
+
+      var prevOption = localStorage.prevOption;
+      $('textarea').val(_.isUndefined(prevOption) ? '' : prevOption);
+      $('textarea').keyup(function (e) {
+        localStorage.prevOption = $('textarea').val();
+      });
     },
     'rate': function () {
       console.log('rate');
