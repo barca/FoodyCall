@@ -82,7 +82,7 @@ label {
  * I want my pure-button elements to look a little different
  */
 .pure-button-main {
-    background-color: #B05353;
+    background-color: rgba(0,0,0,0.3);
     color: white;
     font-size: 20px;
     font-weight: bold;
@@ -98,7 +98,7 @@ label {
     border: 1.5px solid white;
     position:fixed;
     top:15px; left: 10px;
-    background-color: #B05353;
+    background-color: rgba(0,0,0,0.3);
     color: white;
     font-weight: bold;
       padding: .5em .5em;
