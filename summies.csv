@@ -22,6 +22,26 @@ Chopped salad,6.99,0,description,0,none,0,0
 Chopped salad wrap,6.99,0,description,0,none,0,0
 Classic chicken caesar salad,6.99,0,description,0,none,0,0
 Classic chicken caesar salad wrap,6.99,0,description,0,none,0,0
+pollo burrit,6.99,0,description,none,0,0 
+carne burrit,6.99,0,description,none,0,0  
+carnitas burrit,6.99,0,description,none,0,0 
+verduras  burrit,6.99,0,description,none,0,0 
+pollo soft shell tac,6.99,0,description,none,0,0
+carne soft shell tac,6.99,0,description,none,0,0 
+carnitas soft shell tac,6.99,0,description,none,0,0 
+verudas soft shell tac,6.99,0,description,none,0,0 
+pollo hard shell tac,6.99,0,description,none,0,0 
+carne hard shell tac,6.99,0,description,none,0,0 
+carnitas hard shell taco,699,0,description,none,0,0
+verudas hard shell taco,699,0,description,none,0,0
+pollo quesadilla,6.99,0,0,description,0,0
+carne quesadilla,6.99,0,0,description,0,0
+carnitas quesadilla,6.99,0,0,description,0,0
+verudas quesadilla,6.99,0,0,description,0,0
+pollo taco salad,6.99,description,0,0
+carne taco salad,6.99,description,0,0
+carnitas taco salad,6.99,description,0,0
+verudas taco salad,6.99,description,0,0
 Summerfields salad,6.99,0,description,0,none,0,0
 Summerfields salad wrap,6.99,0,description,0,none,0,0
 Caprese salad,6.99,0,description,0,vegan:gluten-free,0,0
