@@ -404,3 +404,21 @@ a.pure-button-primary {
 #third-header {
   display:none;
 }
+
+.fourth-container {
+  z-index: 297;
+  display: none;
+  padding-top: 50px;
+  overflow: scroll;
+  background: #F6F5F0;
+}
+.fourth-container textarea {
+  width: 100%;
+  resize: vertical;
+  color: #555555;
+  font-weight: 100;
+}
+.fourth-container button {
+  width:100%;
+  background-color: #c0392b;
+}
