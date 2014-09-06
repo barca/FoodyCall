@@ -1,37 +1,1 @@
-item,price,rating_avg,description,rater_count,filter,side,extra
-Regular burger,6.99,0,description,0,none,false,0
-Cheddar cheeseburger,6.99,0,description,0,none,false,0
-Cheddar bacon cheeseburger,6.99,0,description,0,none,false,0
-Regular turkey burger,6.99,0,description,0,none,false,0
-Cheddar turkey cheeseburger,6.99,0,description,0,none,false,0
-Cheddar turkey bacon cheeseburger,6.99,0,description,0,none,false,0
-Regular vegan burger,6.99,0,description,0,vegan,false,0
-Cheddar turkey cheeseburger,6.99,0,description,0,none,false,0
-Cheddar turkey bacon cheeseburger,6.99,0,description,0,none,false,0
-Ultimate grilled chicken breast,6.99,0,description,0,none,false,0
-Chicken tender platter,6.99,0,description,0,none,false,0
-Chicken tender wrap,6.99,0,description,0,none,false,0
-Falafel sandwich,6.99,0,description,0,none,false,0
-Falafel platter,6.99,0,description,0,none,false,0
-Beef kebab sandwich,6.99,0,description,0,none,false,0
-Chicken kebab sandwich,6.99,0,description,0,none,false,0
-Kebab platter,6.99,0,description,0,none,false,0
-Tabboulah,6.99,0,description,0,none,false,0
-Tangiers cobb salad,6.99,0,description,0,none,false,0
-Chopped salad,6.99,0,description,0,none,false,0
-Chopped salad wrap,6.99,0,description,0,none,false,0 
-Classic chicken caesar salad,6.99,0,description,0,none,false,0
-Classic chicken caesar salad wrap,6.99,0,description,0,none,false,0
-Summerfields salad,6.99,0,description,0,none,false,0
-Summerfields salad wrap,6.99,0,description,0,none,false,0
-Caprese salad,6.99,0,description,0,vegan:gluten-free,false,0
-Caprese salad wrap,6.99,0,description,0,none,false,0
-Rice and beans,2.99,0,description,0,none,true,0
-Chips and salsa,2.99,0,description,0,none,true,0
-French fries,2.99,0,description,0,none,true,0
-Shirazi salad,2.99,0,description,0,none,true,0
-Onion rings,3.99,0,description,0,none,true,1
-Side house salad,3.99,0,description,0,none,true,1
-Side cut fruit,3.99,0,description,0,none,true,1
-Side credit,3.99,0,description,0,none,true,1
-Hummus and pita,3.99,0,description,0,none,true,1
+item,price,rating_avg,description,rater_count,filter,side,extraRegular burger,6.99,0,description,0,none,0,0Cheddar cheeseburger,6.99,0,description,0,none,0,0Cheddar bacon cheeseburger,6.99,0,description,0,none,0,0Regular turkey burger,6.99,0,description,0,none,0,0Cheddar turkey cheeseburger,6.99,0,description,0,none,0,0Cheddar turkey bacon cheeseburger,6.99,0,description,0,none,0,0Regular vegan burger,6.99,0,description,0,vegan,0,0Cheddar turkey cheeseburger,6.99,0,description,0,none,0,0Cheddar turkey bacon cheeseburger,6.99,0,description,0,none,0,0Ultimate grilled chicken breast,6.99,0,description,0,none,0,0Chicken tender platter,6.99,0,description,0,none,0,0Chicken tender wrap,6.99,0,description,0,none,0,0Falafel sandwich,6.99,0,description,0,none,0,0Falafel platter,6.99,0,description,0,none,0,0Beef kebab sandwich,6.99,0,description,0,none,0,0Chicken kebab sandwich,6.99,0,description,0,none,0,0Kebab platter,6.99,0,description,0,none,0,0Tabboulah,6.99,0,description,0,none,0,0Tangiers cobb salad,6.99,0,description,0,none,0,0Chopped salad,6.99,0,description,0,none,0,0Chopped salad wrap,6.99,0,description,0,none,0,0Classic chicken caesar salad,6.99,0,description,0,none,0,0Classic chicken caesar salad wrap,6.99,0,description,0,none,0,0Summerfields salad,6.99,0,description,0,none,0,0Summerfields salad wrap,6.99,0,description,0,none,0,0Caprese salad,6.99,0,description,0,vegan:gluten-free,0,0Caprese salad wrap,6.99,0,description,0,none,0,0Rice and beans,2.99,0,description,0,none,1,0Chips and salsa,2.99,0,description,0,none,1,0French fries,2.99,0,description,0,none,1,0Shirazi salad,2.99,0,description,0,none,1,0Onion rings,3.99,0,description,0,none,1,1Side house salad,3.99,0,description,0,none,1,1Side cut fruit,3.99,0,description,0,none,1,1Side credit,3.99,0,description,0,none,1,1Hummus and pita,3.99,0,description,0,none,1,1
