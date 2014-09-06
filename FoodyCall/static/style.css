@@ -89,22 +89,22 @@ label {
     padding: .5em .5em;
     border-radius: 5px;
     line-height: 1em;
-    border-radius: 5px;  
+    border-radius: 5px;
     border: 3px solid white;
     margin-bottom: 20px;
 }
 .pure-button-back {
-    font-size: 10px; 
-    border: 1.5px solid white; 
-    position:fixed; 
+    font-size: 10px;
+    border: 1.5px solid white;
+    position:fixed;
     top:15px; left: 10px;
     background-color: #B05353;
     color: white;
     font-weight: bold;
-    padding: .5em .5em;
-    border-radius: 5px;
-    line-height: 1em;
-    border-radius: 5px;  
+      padding: .5em .5em;
+      border-radius: 5px;
+      line-height: 1em;
+      border-radius: 5px;
     margin-bottom: 20px;
 }
 a.pure-button-primary {
@@ -167,6 +167,9 @@ a.pure-button-primary {
 
 .splash-container {
     background: #8C1717;
+    background: url(/static/pictures/bg.jpg);
+    /* background-size: 100%; */
+    background-repeat: no-repeat;
     z-index: 1;
     overflow: hidden;
     /* The following styles are required for the "scroll-over" effect */
@@ -175,6 +178,12 @@ a.pure-button-primary {
     top: -50px;
     left: 0;
     position: fixed !important;
+}
+
+@media (min-width: 992px) {
+  .splash-container {
+    background-size: 100%;
+  }
 }
 
 .splash {
