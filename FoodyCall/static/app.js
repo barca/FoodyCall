@@ -5,17 +5,19 @@ data = [];
 $.getJSON('/menu', function (d) {
   data = d;
 });
-
+started = false;
 //define new router class
 var AppRouter = Backbone.Router.extend ({
   routes: {
     '' : function () {
+      started = true;
       $('.header>div').hide();
       $('#first-header').show();
       $('.splash-container').hide();
       $('.first-container').show();
     },
     'mainOrder': function () {
+      if(!started) {this.navigate('',{trigger:true});return;}
       var router = this;
       var num = $('.splash-input').val();
 
@@ -72,10 +74,12 @@ var AppRouter = Backbone.Router.extend ({
         $('.second-container .item-list .pure-g').removeClass('selected');
         var t = $(e.currentTarget);
         t.addClass('selected');
+        localStorage.mainOrder = t.data('id');
         router.navigate('sides', {trigger: true});
       });
     },
     'sides': function () {
+      if(!started) {this.navigate('',{trigger:true});return;}
       var router = this;
       var selectedItem = $('.second-container .item-list .pure-g.selected');
       if(selectedItem.length !== 1) {
@@ -106,15 +110,16 @@ var AppRouter = Backbone.Router.extend ({
         $('.third-container .item-list .pure-g').removeClass('selected');
         var t = $(e.currentTarget);
         t.addClass('selected');
+        localStorage.sideOrder = t.data('id');
         router.navigate('special', {trigger: true});
       });
     },
     'special': function () {
+      if(!started) {this.navigate('',{trigger:true});return;}
       var selectedItem = $('.third-container .item-list .pure-g.selected');
       if(selectedItem.length !== 1) {
         this.navigate('sides', {trigger: true});
       }
-      // $('#fourth-header .pure-menu-heading').html('Sides for <b>' + selectedItem.find('h3').text() + '</b>');
 
       $('.header>div').hide();
       $('#fourth-header').show();
@@ -150,6 +155,7 @@ var AppRouter = Backbone.Router.extend ({
 
     },
     sending: function () {
+      if(!started) {this.navigate('',{trigger:true});return;}
       $('.header>div').hide();
       $('#first-header').show();
 
@@ -166,6 +172,12 @@ var AppRouter = Backbone.Router.extend ({
         $('.fifth-container p').show();
       };
       setTimeout(cb, 2000);
+    },
+    'repeatLastOrder': function () {
+      console.log('Repeat last order');
+    },
+    'rate': function () {
+      console.log('rate');
     }
   }
 });
@@ -206,7 +218,7 @@ $(document).ready(function () {
 
   var appRouter = new AppRouter();
   Backbone.history.start();
-  Backbone.history.navigate('#');
+  appRouter.navigate('#');
 });
 
 } catch(e) {
