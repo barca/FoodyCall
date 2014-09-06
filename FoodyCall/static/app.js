@@ -1,3 +1,5 @@
+try {
+
 data = [];
 
 $.getJSON('http://127.0.0.1:3000/menu', function (d) {
@@ -127,9 +129,13 @@ var AppRouter = Backbone.Router.extend ({
       var itemstemplate = $('.fourth-container #items-template');
       var itemlist = $('.fourth-container .item-list');
 
+      var mainOrder = $('.second-container .item-list .pure-g.selected');
+      var sideOrder = $('.third-container .item-list .pure-g.selected');
       itemlist.html(_.template(itemstemplate.html(), {
-        mainOrder: $('.second-container .item-list .pure-g.selected h3').text(),
-        sideOrder: $('.third-container .item-list .pure-g.selected h3').text()
+        mainOrder: mainOrder.find('h3').text(),
+        sideOrder: sideOrder.find('h3').text(),
+        mainPrice: parseFloat(mainOrder.data('price')),
+        sidePrice: parseFloat(sideOrder.data('price'))
       }));
 
 
@@ -139,6 +145,11 @@ var AppRouter = Backbone.Router.extend ({
 
 
 $(document).ready(function () {
+  var prevTel = localStorage.prevTel;
+  $('.splash-input').val(_.isUndefined(prevTel) ? '' : prevTel);
+  $('.splash-input').keyup(function (e) {
+    localStorage.prevTel = $('.splash-input').val();
+  });
   $('.foody-checkbox').click(function (e) {
     var t = $(e.currentTarget);
     t.toggleClass("foody-checked");
@@ -167,4 +178,10 @@ $(document).ready(function () {
 
   var appRouter = new AppRouter();
   Backbone.history.start();
+  Backbone.history.navigate('#');
 });
+
+} catch(e) {
+  console.log(e);
+  Backbone.history.navigate('#');
+}

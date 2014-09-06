@@ -63,6 +63,8 @@
       </script>
       <p class="splash-subhead">Enter your cell #, choose your meal, <br>and pick up your order!</p>
       <p><a href="#mainOrder" class="pure-button pure-button-primary">Make a Foody Call!</a>
+      <p><a href="#repeatLastOrder" class="pure-button pure-button-primary">Repeat Last Order</a>
+      <p><a href="#rate" class="pure-button pure-button-primary">Add an Item Rating</a>
       </p>
     </div>
 
@@ -81,8 +83,8 @@
     <div class="item-list">
     </div>
     <script type="text/template" id="items-template">
-      <div class="pure-g no-option">
-          <div class="pure-u-2-3" data-price="0.00">
+      <div class="pure-g no-option" data-price="0.00">
+          <div class="pure-u-2-3">
             <h3>Just sides</h3>
           </div>
           <div class="pure-u-1-3" style="font-size:20px">
@@ -109,8 +111,8 @@
       <div class="item-list">
       </div>
       <script type="text/template" id="items-template">
-        <div class="pure-g no-option">
-            <div class="pure-u-2-3" data-price="0.00">
+        <div class="pure-g no-option" data-price="0">
+            <div class="pure-u-2-3">
               <h3>No sides</h3>
             </div>
             <div class="pure-u-1-3" style="font-size:20px">
@@ -118,13 +120,15 @@
             </div>
         </div>
         <% items.forEach(function(item) { %>
-          <div class="pure-g option" data-price="<%=item.price %>">
+          <div class="pure-g option" data-price="<%=($('.second-container .item-list .pure-g.selected').hasClass('no-option') === "Just sides") ? item.price : item.extra %>">
               <div class="pure-u-2-3">
                 <h3><%=item.item %></h3>
                 <%=item.description %>
               </div>
               <div class="pure-u-1-3" style="font-size:20px">
-                <div style="margin-bottom:10px"><span class="pure-button price-tag"> $<%=item.price %></span><br> </div>
+                <div style="margin-bottom:10px"><span class="pure-button price-tag">
+                  $<%=($('.second-container .item-list .pure-g.selected').hasClass('no-option') === "Just sides") ? item.price : item.extra %>
+                  </span><br> </div>
                 <span class="rating">
                   <%=Array(Math.floor(item.rating_avg)).join('<i class="fa fa-star"></i>') %><%=((item.rating_avg % 1) >= 0.5) ? '<i class="fa fa-star-half-o"></i>': "" %>
                 </span>
@@ -140,30 +144,47 @@
       <script type="text/template" id="items-template">
           <div class="pure-g">
               <div class="pure-u-2-3">
-                <h3 style="text-transform:uppercase"><%=mainOrder %></h3>
+                <h3><%=mainOrder %></h3>
                 Your main order
               </div>
               <div class="pure-u-1-3" style="font-size:20px">
-                <div style="margin-bottom:10px"><span class="pure-button price-tag"> $<%=0.00 %></span><br> </div>
+                <div style="margin-bottom:10px"><span class="pure-button price-tag"> $<%=mainPrice %></span><br> </div>
               </div>
           </div>
 
           <div class="pure-g">
               <div class="pure-u-2-3">
-                <h3 style="text-transform:uppercase"><%=sideOrder %></h3>
+                <h3><%=sideOrder %></h3>
                 Your side order
               </div>
               <div class="pure-u-1-3" style="font-size:20px">
-                <div style="margin-bottom:10px"><span class="pure-button price-tag"> $<%=0.00 %></span><br> </div>
+                <div style="margin-bottom:10px"><span class="pure-button price-tag"> $<%=sidePrice %></span><br> </div>
               </div>
           </div>
 
-          <div class="pure-g">
-              <div class="pure-u-1-1" style="font-size:20px">
-                <form class="pure-form"><textarea></textarea></form>
-                <div style="margin-top:10px"><button class="pure-button">Send Order!</button></div>
+          <div class="pure-g no-option">
+              <div class="pure-u-2-3">
+                <h3>Total</h3>
+              </div>
+              <div class="pure-u-1-3" style="font-size:20px">
+                <div style="margin-bottom:10px"><span class="pure-button price-tag"> $<%=(mainPrice + sidePrice) %></span><br> </div>
               </div>
           </div>
+
+          <% if((mainPrice + sidePrice) !== 0) { %>
+            <div class="pure-g">
+                <div class="pure-u-1-1" style="font-size:20px">
+                    <form class="pure-form"><textarea></textarea></form>
+                    <div style="margin-top:10px"><button class="pure-button">Send Order!</button></div>
+                </div>
+            </div>
+          <% } else { %>
+            <div class="pure-g" style=" font-size: 2em; text-align: center; background: #9b59b6; color: white; line-height: 1.3em;">
+              <div class="pure-u-1-1">
+                Would you like some water? That's free too!
+              </div>
+            </div>
+          <% } %>
       </script>
     </div>
 
