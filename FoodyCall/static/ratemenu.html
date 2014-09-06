@@ -31,9 +31,25 @@
     <div class="splash">
       <p class="splash-head"> Rate the Menu </p>
     <p class="splash-subhead"> Select the Meal to Rate</p>
-    <select>
-      <option>Item1</option>
-      <option>Item2</option>
+      <script type="text/template" id="items-template">
+      <select>
+      <% items.forEach(function(item) { %>
+        <option> <%=item.item%> </option>
+      <% }) %>
+      </select>
+    </script>
+
+    <script type="text/javascript">
+      //$(document).ready(function () {
+      var itemstemplate = $('#items-template');
+      var itemlist = $('.item-list');
+      var data = [];
+      $.getJSON('http://127.0.0.1:5000/menu', function (data) {
+        itemlist.html(_.template(itemstemplate.html(), {items: data}));
+      })
+
+      //});
+  </script>
     </select>
     <p class="splash-subhead">Rate out of 5 Stars</p>
     <div class="rating">  
