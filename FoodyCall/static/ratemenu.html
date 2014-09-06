@@ -37,26 +37,43 @@
       <script type="text/template" id="items-template">
         <select>
           <% items.forEach(function(item) { %>
-            <option> <%=item.item%> </option>
+            <option value="<%=item._id %>"> <%=item.item%> </option>
           <% }) %>
         </select>
       </script>
 
     <script type="text/javascript">
-      //$(document).ready(function () {
-      var itemstemplate = $('#items-template');
-      var select = $('#select');
-      var data = [];
-      $.getJSON('http://127.0.0.1:5000/menu', function (data) {
-        select.html(_.template(itemstemplate.html(), {items: data}));
-      });
+      $(document).ready(function () {
+        var itemstemplate = $('#items-template');
+        var select = $('#select');
+        var data = [];
+        $.getJSON('http://127.0.0.1:5000/menu', function (data) {
+          select.html(_.template(itemstemplate.html(), {items: data}));
+        });
 
-      //});
+        $('.rating span').click(function(e) {
+          var num = $(e.currentTarget).data('val');
+          var id = $('select').val();
+
+          $.ajax({
+            type: "POST",
+            url: "/rate",
+            data: {item: id, rate: num}
+          }).done(function() {
+            alert('Rated ' + num + "!");
+          });
+        });
+
+      });
   </script>
     </select>
     <p class="splash-subhead">Rate out of 5 Stars</p>
     <div class="rating">  
-      <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+      <span data-val="5">☆</span>
+      <span data-val="4">☆</span>
+      <span data-val="3">☆</span>
+      <span data-val="2">☆</span>
+      <span data-val="1">☆</span>
     </div>
     </div>
 
