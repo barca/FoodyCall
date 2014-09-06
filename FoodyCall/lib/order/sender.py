@@ -6,7 +6,7 @@ from twilio.rest import TwilioRestClient
 def send_text(destination,origin,message):
     client = TwilioRestClient(ACCOUNT_SID,AUTH_TOKEN)
     client.messages.create(
-        to = 6036864110,
+        to = destination,
         from_= origin,
         body = message
         )
