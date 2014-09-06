@@ -1,5 +1,31 @@
 try {
 
+
+
+timeCheck = function () {
+  var now = moment();
+  var isBetween = function (m, first, second) {
+    return m.isAfter(first) && m.isBefore(second);
+  };
+  var time = function (h, m) {
+    return now.hour(h).minute(m);
+  };
+
+  var weekday = parseInt(now.format('d')); //sun=0, mon=1 ..
+  if(isBetween(now, time(11,30), time(14,0)) &&  weekday < 6 && weekday > 0) {
+    return "Summies Lunch";
+  }
+  if(isBetween(now, time(17,30), time(21,0))) {
+    return "Summies Dinner";
+  }
+  if(isBetween(now, time(21,30), time(1,0).add(1, 'd'))) {
+    return "Late Night";
+  }
+  return "No";
+};
+
+
+
 data = [];
 
 $.getJSON('/menu', function (d) {
@@ -174,6 +200,7 @@ var AppRouter = Backbone.Router.extend ({
       setTimeout(cb, 2000);
     },
     'repeatLastOrder': function () {
+      if(!started) {this.navigate('',{trigger:true});return;}
 
       $('.header>div').hide();
       $('#fourth-header').show();
@@ -204,13 +231,25 @@ var AppRouter = Backbone.Router.extend ({
       });
     },
     'rate': function () {
-      console.log('rate');
+      if(!started) {this.navigate('',{trigger:true});return;}
+
+      $('.header>div').hide();
+      $('#rate-header').show();
+
+      $('.first-container').addClass('flip');
+      setTimeout(function () {
+        $('.splash-container').hide();
+        $('.first-container').removeClass('flip');
+        $('.rate-container').show();
+      }, 500);
     }
   }
 });
 
 
 $(document).ready(function () {
+  $('#first-header a').prepend('<b>' + timeCheck() + '</b> ')
+
   var prevTel = localStorage.prevTel;
   $('.splash-input').val(_.isUndefined(prevTel) ? '' : prevTel);
   $('.splash-input').keyup(function (e) {
