@@ -147,7 +147,7 @@ a.pure-button-primary {
 .splash {
     /* absolute center .splash within .splash-container */
     width: 80%;
-    height: 70%;
+    height: 70% !important;
     margin: auto;
     position: absolute;
     top: 100px; left: 0; bottom: 0; right: 0;
@@ -327,6 +327,7 @@ a.pure-button-primary {
   background: #F6F5F0;
 }
 .item-list h3 {
+  text-transform: uppercase;
   margin:0;
 }
 
@@ -420,5 +421,8 @@ a.pure-button-primary {
 }
 .fourth-container button {
   width:100%;
-  background-color: #c0392b;
+  background-color: #e74c3c;
+}
+.no-option {
+  background-color: rgba(60, 76, 60, 0.15) !important;
 }
