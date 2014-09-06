@@ -17,6 +17,7 @@ menu = Blueprint('menu', __name__, template_folder='templates')
 client = MongoClient()
 
 db = client.menudb
+menu_items = db.menu_items
 
 @menu.route('', methods = ['GET'])
 def index():
