@@ -18,7 +18,7 @@ for row in summies_menu_csv:
 	row["rater_count"] = int(row["rater_count"])
 	row["price"] = float(row["price"])
 	row["side"] = bool(int(row["side"]))
-	row["menu"] = str(row["extra"])
+	row["menu"] = str(row["menu"])
 	if row["filter"] == "none":
 		row["filter"] = []
 	else:
