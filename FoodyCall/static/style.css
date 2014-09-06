@@ -322,7 +322,7 @@ a.pure-button-primary {
 
 .second-container {
   z-index:299;
-  padding-top: 50px;
+  padding-top: 70px;
   overflow: scroll;
   background: #F6F5F0;
 }
@@ -557,3 +557,23 @@ a.pure-button-primary {
   overflow: scroll;
   background: #F6F5F0;
 }
+
+.header input::-webkit-input-placeholder {
+  color: rgba(255,255,255,0.7);
+}
+.header input:-moz-placeholder {
+  color: rgba(255,255,255,0.7);
+}
+.header input {
+  width:90%;
+  text-align:center;
+  margin-left:4px;
+  color: white;
+  border: 1px solid white;
+  font-weight:100;
+  padding: 6px;
+  font-size: 0.85em;
+  border-radius: 5px;
+  background: transparent;
+}
+
