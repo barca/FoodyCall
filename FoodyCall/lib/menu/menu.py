@@ -26,7 +26,7 @@ for row in summies_menu:
 	row["rating_avg"] = int(row["rating_avg"])
 	row["rater_count"] = int(row["rater_count"])
 	row["price"] = float(row["price"])
-	row["side"] = bool(row["side"])
+	row["side"] = bool(int(row["side"]))
 	row["extra"] = int(row["extra"])
 	if row["filter"] == "none":
 		row["filter"] = []
@@ -34,7 +34,6 @@ for row in summies_menu:
 		row["filter"] = row["filter"].split(":")
 
 	menu_items_id = menu_items.insert(row)
-	print row
 
 @menu.route('', methods = ['GET'])
 def index():
