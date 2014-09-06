@@ -14,17 +14,19 @@ menu_items=db.menu_items
 
 @ratings.route('',methods=['POST'])
 def index():
-		item_id = request.form.get("item_id")
-		rating = request.form.get("rate")
-		avg = {}
+		new_id = request.form.get("item")
+		rating = int(request.form.get("rate"))
+		avg = 0
 		for item in menu_items.find():
-	 		if item_id == str(item['_id']):
-	 			avg = (item['rating_avg']*item['rater_count']+rating)/(item['rater_count']+1)
-	 	if avg:
-	 	  db.menu.update({item_id: item_id}, 
+	 		if new_id == str(item['_id']):
+	 			old_avg = item['rating_avg']
+	 			num = item['rater_count']
+	 			avg = (old_avg*num + rating) / (num + 1)
+	 	if avg>0:
+	 	  db.menu_items.update({'_id': new_id}, 
 	 		  {
-	 			  '$set': { rating_avg: avg, 
-	 				  			rater_count: rater_count+1 
-	 					  	}
-	 		  })
+	 			  '$set': { 'rating_avg': avg}, 
+	 				'$set': { 'rater_count': num+1 }
+	 		  }
+	 		)
 	 	return json.dumps(avg)
