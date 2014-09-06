@@ -2,7 +2,7 @@ try {
 
 data = [];
 
-$.getJSON('http://127.0.0.1:3000/menu', function (d) {
+$.getJSON('/menu', function (d) {
   data = d;
 });
 
