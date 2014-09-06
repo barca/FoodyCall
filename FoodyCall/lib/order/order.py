@@ -27,10 +27,10 @@ def index():
   for items in menu_items.find():
     print('d')
     if food_id == str(items['_id']):
-      msg = items['name']
+      msg = items['item']
   for dog in menu_items.find():
     if side_id == str(items['_id']):
-      side = items['name']
+      side = items['item']
       msg = side + msg
   if(len(msg)<=0):
     return jsonify({'ERROR':"ID not found"})
