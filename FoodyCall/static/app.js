@@ -15,7 +15,8 @@ timeCheck = function () {
   if(isBetween(now, time(11,30), time(14,0)) &&  weekday < 6 && weekday > 0) {
     return "Summies Lunch";
   }
-  if(isBetween(now, time(17,30), time(21,0))) {
+  // if(isBetween(now, time(17,30), time(21,0))) {
+  if(isBetween(now, time(16,00), time(21,0))) {
     return "Summies Dinner";
   }
   if(isBetween(now, time(21,30), time(1,0).add(1, 'd'))) {
