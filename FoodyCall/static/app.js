@@ -2,7 +2,7 @@ try {
 
 data = [];
 
-$.getJSON('http://127.0.0.1:3000/menu', function (d) {
+$.getJSON('/menu', function (d) {
   data = d;
 });
 
@@ -131,6 +131,9 @@ var AppRouter = Backbone.Router.extend ({
 
       var mainOrder = $('.second-container .item-list .pure-g.selected');
       var sideOrder = $('.third-container .item-list .pure-g.selected');
+      if(mainOrder.length < 1 || sideOrder.length < 1) {
+        this.navigate('', {trigger: true});
+      }
       itemlist.html(_.template(itemstemplate.html(), {
         mainOrder: mainOrder.find('h3').text(),
         sideOrder: sideOrder.find('h3').text(),
@@ -138,7 +141,31 @@ var AppRouter = Backbone.Router.extend ({
         sidePrice: parseFloat(sideOrder.data('price'))
       }));
 
+      var prevOption = localStorage.prevOption;
+      $('textarea').val(_.isUndefined(prevOption) ? '' : prevOption);
+      $('textarea').keyup(function (e) {
+        localStorage.prevOption = $('textarea').val();
+      });
 
+
+    },
+    sending: function () {
+      $('.header>div').hide();
+      $('#first-header').show();
+
+      $('.fourth-container').addClass('flip');
+      setTimeout(function () {
+        $('.splash-container').hide();
+        $('.fourth-container').removeClass('flip');
+        $('.fifth-container').show();
+      }, 500);
+      console.log("sending");
+      var cb = function () {
+        $('.sending').hide();
+        $('.sent').show();
+        $('.fifth-container p').show();
+      };
+      setTimeout(cb, 2000);
     }
   }
 });
@@ -150,11 +177,12 @@ $(document).ready(function () {
   $('.splash-input').keyup(function (e) {
     localStorage.prevTel = $('.splash-input').val();
   });
+
   $('.foody-checkbox').click(function (e) {
     var t = $(e.currentTarget);
     t.toggleClass("foody-checked");
-    t.find('.fa').toggleClass('fa-check');
-    t.find('.fa').toggleClass('fa-times');
+    t.find('.fa').toggleClass('fa-check-square-o');
+    t.find('.fa').toggleClass('fa-square-o');
 
     appRouter.navigate("");
     appRouter.navigate("mainOrder", {trigger: true});
