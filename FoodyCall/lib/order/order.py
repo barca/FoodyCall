@@ -34,9 +34,9 @@ def index():
       msg = side + msg
   if(len(msg)<=0):
     return jsonify({'ERROR':"ID not found"})
-    to_send = msg + special
-    rtn = sender.send_text(phone_num, phone_num,to_send)
-    if (rtn != 'success'):
-      return jonify({'ERROR':'a serious error has occurred, please inform creators of flaw'})
-    else:
-      return jsonify({'success':'expect your food shortly!'})
+  to_send = msg + special_requests
+  rtn = sender.send_text(phone_num, phone_num,to_send)
+  if (rtn != 'success'):
+    return jsonify({'ERROR':'a serious error has occurred, please inform creators of flaw'})
+  else:
+    return jsonify({'success':'expect your food shortly!'})
