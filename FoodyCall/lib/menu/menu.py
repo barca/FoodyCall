@@ -32,16 +32,18 @@ order_history = db.order_history
 
 @menu.route('/<number>')
 def popular(number=9999999999):
-		#number = request.form.get('number')
-		dct = {}
-		for order in order_history.find():
-			if str(number) == str(order['user']):
-				if order['item_id'] in dct:
-					dct[order['item_id']] = dct[order['item_id']] + 1
-				else:
-					dct[order['item_id']] = 1
-				if order['side_id'] in dct:
-					dct[order['side_id']] = dct[order['side_id']] + 1
-				else:
-					dct[order['side_id']] = 1
-		return jsonify(dct)
+		menulist = []
+		for item in menu_items.find():
+			menulist.append({"_id": str(item['_id']), 
+				"description": item['description'], 
+				"filter": item['filter'], "item": item['item'], 
+				"menu": item['menu'], "price": item['price'], "rater_count": item['rater_count'], 
+				"rating_avg": item['rating_avg'], "side": item['side'], "count": 0})
+
+			for order in order_history.find():
+				if str(number) == str(order['user']):
+					if order['item_id'] == item['item_id']:
+						item['count'] = item['count'] + 1
+		return json.dumps(menulist)
+
+
