@@ -12,7 +12,7 @@ client = MongoClient()
 db = client.menudb
 menu_items = db.menu_items
 
-summies_menu_csv = csv.DictReader(open("summies.csv"))
+summies_menu_csv = csv.DictReader(open("menu.csv"))
 for row in summies_menu_csv:
 	row["rating_avg"] = int(row["rating_avg"])
 	row["rater_count"] = int(row["rater_count"])
