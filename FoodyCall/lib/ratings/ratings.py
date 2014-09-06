@@ -1,9 +1,8 @@
-from pymongo import MongoClient
 from flask import Blueprint
 from flask import jsonify
 from flask import make_response
 from flask import request
-from lib.menu.menu import MongoClient
+from pymongo import MongoClient
 from bson.objectid import ObjectId
 import json
 
