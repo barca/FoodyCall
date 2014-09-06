@@ -17,36 +17,7 @@ menu = Blueprint('menu', __name__, template_folder='templates')
 client = MongoClient()
 
 db = client.menudb
-menu_to_serve = ""
-menu_items = None
-
-# Get the time and choose which menu to load, then get the collection of items
-now = datetime.now()
-if (now.hour >= 22 and now.hour <= 23) or now.hour == 0:
-	menu_to_serve = "latenight"
-	menu_items = db.latenight_menu
-elif (now.hour >= 11 and now.hour <= 2):
-	menu_to_serve = "summies"
-	menu_items = db.summies_menu
-else:
-	print "Invalid time: defaulting to summies_menudb for dev purposes"
-	menu_to_serve = "summies"
-	menu_items = db.summies_menu
-
-if menu_to_serve == "summies":
-	summies_menu_csv = csv.DictReader(open("summies.csv"))
-	for row in summies_menu_csv:
-		row["rating_avg"] = int(row["rating_avg"])
-		row["rater_count"] = int(row["rater_count"])
-		row["price"] = float(row["price"])
-		row["side"] = bool(int(row["side"]))
-		row["extra"] = int(row["extra"])
-		if row["filter"] == "none":
-			row["filter"] = []
-		else:
-			row["filter"] = row["filter"].split(":")
-
-		menu_items_id = menu_items.insert(row)
+menu_items = db.menu_items
 
 @menu.route('', methods = ['GET'])
 def index():

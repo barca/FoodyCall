@@ -550,3 +550,10 @@ a.pure-button-primary {
   display: none;
   color: #27ae60;
 }
+.rate-container {
+  z-index: 296;
+  display: none;
+  padding-top: 50px;
+  overflow: scroll;
+  background: #F6F5F0;
+}
