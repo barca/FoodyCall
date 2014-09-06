@@ -4,7 +4,6 @@ from lib.menu.menu import menu
 from lib.ratings.ratings import ratings
 from lib.order.order import order
 from lib.order.past_order import past_order
-from lib.popular.popular import popular
 app = Flask(__name__)
 
 # Initialize blueprints
