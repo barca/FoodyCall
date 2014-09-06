@@ -72,5 +72,7 @@ def popular(number=9999999999):
 				if order['side_id'] in dct:
 					dct[order['side_id']] = dct[order['side_id']] + 1
 				else:
-					dct[order['side_id']] = 1
-		return jsonify(dct)
+          dct[order['side_id']] = 1
+    if(len(dict) < 1):
+      return jsonify({"ERROR":"No User History"})
+    return jsonify(dct)
