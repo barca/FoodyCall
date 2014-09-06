@@ -37,10 +37,27 @@ for row in summies_menu:
 
 @menu.route('', methods = ['GET'])
 def index():
-	if request.method == "GET":
-	 	ret = []
-		for item in menu_items.find():
-	 		item['_id'] = str(item['_id'])
-	 		ret.append(item)
+ 	ret = []
+	for item in menu_items.find():
+ 		item['_id'] = str(item['_id'])
+ 		ret.append(item)
 
-	 	return json.dumps(ret)
+ 	return json.dumps(ret)
+
+order_history = db.order_history
+
+@menu.route('/<number>')
+def popular(number=9999999999):
+		#number = request.form.get('number')
+		dct = {}
+		for order in order_history.find():
+			if str(number) == str(order['user']):
+				if order['item_id'] in dct:
+					dct[order['item_id']] = dct[order['item_id']] + 1
+				else:
+					dct[order['item_id']] = 1
+				if order['side_id'] in dct:
+					dct[order['side_id']] = dct[order['side_id']] + 1
+				else:
+					dct[order['side_id']] = 1
+		return jsonify(dct)
