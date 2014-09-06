@@ -21,7 +21,7 @@ db = client.menudb
 # Get the collection of items
 menu_items = db.menu_items
 
-summies_menu = csv.DictReader(open("summies.csv"))
+summies_menu = csv.DictReader(open("../summies.csv"))
 for row in summies_menu:
 	row["rating_avg"] = int(row["rating_avg"])
 	row["rater_count"] = int(row["rater_count"])
