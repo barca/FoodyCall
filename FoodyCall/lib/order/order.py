@@ -9,6 +9,7 @@ import sender
 client = MongoClient()
 db = client.menudb
 menu_items = db.menu_items
+order_history = db.order_history
 order = Blueprint('order', __name__, template_folder = 'templates')
 print('dog')
 @order.route('',methods = ['POST'])
@@ -26,17 +27,26 @@ def index():
   print('crunch time')
   for items in menu_items.find():
     print('d')
-    if food_id == str(items['_id']):
+    if food_id == str(items['id']):
       msg = items['item']
   for dog in menu_items.find():
-    if side_id == str(items['_id']):
+    if side_id == str(items['id']):
       side = items['item']
       msg = side + msg
   if(len(msg)<=0):
     return jsonify({'ERROR':"ID not found"})
   to_send = msg + special_requests
   rtn = sender.send_text(phone_num, phone_num,to_send)
+  order_time = time.time()
+  order= {
+      user : number,
+      message : to_send,
+      side_id : side_id,
+      item_id : item_id,
+      order_time : order_time
+      }
+  order_history.insert(order)
   if (rtn != 'success'):
-    return jsonify({'ERROR':'a serious error has occurred, please inform creators of flaw'})
+    return jsonify({'ok':'false'})
   else:
-    return jsonify({'success':'expect your food shortly!'})
+    return jsonify({'ok':'true'})
