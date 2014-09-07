@@ -82,7 +82,7 @@ a.pure-button-primary {
     color: #e74c3c;
     border-color:#e74c3c;
     border-radius: 5px;
-    font-size: 170%;
+    font-size: 120%;
 }
 
 
@@ -147,7 +147,7 @@ a.pure-button-primary {
 .splash {
     /* absolute center .splash within .splash-container */
     width: 80%;
-    height: 70% !important;
+    height: 90% !important;
     margin: auto;
     position: absolute;
     top: 100px; left: 0; bottom: 0; right: 0;
@@ -160,7 +160,7 @@ a.pure-button-primary {
     width: 100%;
     text-align:center;
     background: rgba(255,255,255,0.7);
-    font-size: 30px;
+    font-size: 28px;
     font-weight: bold;
     color: rgba(231, 76, 60, 1);
     border: 3px solid white;
@@ -233,8 +233,7 @@ a.pure-button-primary {
 .footer {
   background: rgba(0,0,0,0.4);
   font-size:0.8em;
-  position:absolute;
-  bottom:0;
+  text-transform: none;
 }
 
 /*
@@ -299,6 +298,7 @@ a.pure-button-primary {
 }
 
 .first-container {
+    overflow-y:scroll;
     z-index: 300;
     background: #e74c3c;
     background-image: url(/static/pictures/bg.jpg);
@@ -351,9 +351,12 @@ a.pure-button-primary {
 }
 
 .rating {
+  font-size:1.2em;
   color: #f1c40f;
 }
 .price-tag {
+  padding-right: 1.2em;
+  padding-left: 1.2em;
   font-size: 0.7em;
   color: rgba(28, 184, 65, 1);
   background: transparent;
@@ -414,12 +417,14 @@ a.pure-button-primary {
   background: #F6F5F0;
 }
 .fourth-container textarea {
+  font-size: 0.8em;
   width: 100%;
   resize: vertical;
   color: #555555;
   font-weight: 100;
 }
 .fourth-container a.pure-button {
+  font-size: 0.8em;
   width:100%;
   background-color: #e74c3c;
 }
@@ -557,6 +562,12 @@ a.pure-button-primary {
   overflow: scroll;
   background: #F6F5F0;
 }
+.rate-container .pure-u-1-3 {
+  text-align: right !important;
+}
+.rate-container .pure-u-2-3 {
+  padding-right:4px;
+}
 
 .header input::-webkit-input-placeholder {
   color: rgba(255,255,255,0.7);
@@ -578,8 +589,25 @@ a.pure-button-primary {
 }
 
 select.point {
-  font-size: 0.8em;
   background: #f1c40f;
   color: rgba(0,0,0,0.8);
   font-weight: 100;
+}
+@media (max-width: 400px) {
+  .header .fa {
+    display: none;
+  }
+  .rating {
+    font-size:0.7em;
+  }
+}
+@media (min-width: 400px) {
+  .price-tag {font-size:0.9em;}
+   a.pure-button-primary {
+     font-size:170%;
+   }
+   .splash {height:70%;}
+}
+#second-header .pure-button {
+  padding: .5em 1em;
 }

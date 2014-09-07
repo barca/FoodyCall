@@ -1,13 +1,16 @@
 (function(){
 try {
-var options = {extract: function(i) {return i.item;}};
+if(localStorage.mainOrder === "undefined" || localStorage.sideOrder === "undefined") {
+  localStorage.removeItem('mainOrder');
+  localStorage.removeItem('sideOrder');
+}
 
 var unmask = function () {
   var s = $('.splash-input').val();
   return s.slice(1,4) + s.slice(6,9) + s.slice(10);
 };
 
-var timeCheck = function () {
+timeCheck = function () {
   var now = moment();
   var isBetween = function (m, first, second) {
     return m.isAfter(first) && m.isBefore(second);
@@ -31,7 +34,7 @@ var timeCheck = function () {
 
 
 
-var data = [];
+data = [];
 
 started = false;
 //define new router class
@@ -172,7 +175,6 @@ var AppRouter = Backbone.Router.extend ({
         this.navigate('', {trigger: true});
       }
       itemlist.html(_.template(itemstemplate.html(), {
-        timeCheck: timeCheck,
         mainOrder: mainOrder.find('h3').text(),
         sideOrder: sideOrder.find('h3').text(),
         mainPrice: parseFloat(mainOrder.data('price')),
