@@ -27,16 +27,17 @@ def index():
      pass
   special_requests = request.form.get('special')
   for items in menu_items.find():
-    if food_id == str(items['id']):
+    if food_id == str(items['_id']):
       msg = items['item']
-  for dog in menu_items.find():
-    if side_id == str(items['id']):
+  for items in menu_items.find():
+    if side_id == str(items['_id']):
       side = items['item']
       msg = side + msg
   if(len(msg)<=0):
     return jsonify({'ERROR':"ID not found"})
+
   to_send = msg + special_requests
-  rtn = sender.send_text(phone_num,,to_send)
+  rtn = sender.send_text(phone_num,0,to_send) #phone number should be here
   order_time = time.time()
   order= {
       user : number,
