@@ -204,7 +204,29 @@ var AppRouter = Backbone.Router.extend ({
         $('.sent').show();
         $('.fifth-container p').show();
       };
-      setTimeout(cb, 2000);
+      // setTimeout(cb, 2000);
+
+        var orderedMain = _.findWhere({_id: localStorage.mainOrder});
+        var orderedSide = _.findWhere({_id: localStorage.sideOrder});
+        if(orderedSide.menu !== orderedMain.menu) {
+          console.log('You selected items from different menus.');
+          return;
+        }
+
+        $.ajax({
+          type: "POST",
+          url: "/order",
+          data: {
+            destination: orderedMain.menu,
+            item_id: orderedMain.item,
+            side_id: orderedSide.item,
+            special: localStorage.prevOption,
+            number: localStorage.prevTel,
+          }
+        }).done(function( msg ) {
+          console.log(msg);
+          cb();
+        });
     },
     'repeatLastOrder': function () {
       if(!started) {this.navigate('',{trigger:true});return;}
