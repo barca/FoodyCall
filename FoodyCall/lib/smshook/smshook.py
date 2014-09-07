@@ -16,7 +16,7 @@ client = MongoClient()
 db = client.menudb
 menu_items = db.menu_items
 order_history = db.order_history
-twilio = Blueprint('twilio', __name__, template_folder = 'templates')
+smshook = Blueprint('smshook', __name__, template_folder = 'templates')
 
 
 TwilioClient = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
@@ -33,7 +33,7 @@ def send_text(destination,origin,message):
     return False
 
 
-@twilio.route('',methods = ['POST'])
+@smshook.route('',methods = ['GET'])
 def index():
     received = filter(lambda s: s.status == "received",
                       TwilioClient.sms.messages.list())
