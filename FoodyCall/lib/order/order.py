@@ -38,7 +38,7 @@ def index():
     return jsonify({'ERROR':"ID not found"})
 
   to_send = msg + ". " +special_requests
-  rtn = sender.send_text(phone_num,"(978) 378-3121",to_send) #phone number should be here
+  rtn = sender.send_text(destination_num,"(978) 378-3121",to_send) #phone number should be here
   order= {
       'user' : phone_num,
       'side_id' : side_id,
