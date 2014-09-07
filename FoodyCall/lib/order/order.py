@@ -44,10 +44,10 @@ def index():
       'side_id' : side_id,
       'item_id' : food_id,
       'date' : datetime.now(),
-      'replied' : "false"
+      'replied' : False
       }
   order_history.insert(order)
   if (rtn != 'success'):
-    return jsonify({'ok':'false'})
+    return jsonify({'ok':False})
   else:
-    return jsonify({'ok':'true'})
+    return jsonify({'ok':True})

@@ -18,11 +18,9 @@ menu_items = db.menu_items
 order_history = db.order_history
 smshook = Blueprint('smshook', __name__, template_folder = 'templates')
 
-
-TwilioClient = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
-
 def send_text(destination,origin,message):
   try:
+    TwilioClient = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
     TwilioClient.messages.create(
         to = destination,
         from_= origin,
@@ -33,20 +31,16 @@ def send_text(destination,origin,message):
     return False
 
 
-@smshook.route('',methods = ['GET'])
+@smshook.route('', methods = ['GET'])
 def index():
-    received = filter(lambda s: s.status == "received",
-                      TwilioClient.sms.messages.list())
-
-    incoming = received[0].body
-
+    incoming = request.args.get('Body')
     oldest = order_history.find_one({"$query":   {"replied": False},
                                      "$orderby": {"date"   : -1 } })
 
-    # Send an SMS to `oldest.phone` with `incoming`
-    result = send_text(oldest.get('phone'), ORIGIN, incoming)
+    # Send an SMS to `oldest.user` with `incoming`
+    result = send_text(oldest.get('user'), ORIGIN, incoming)
     if(result):
-      print "Text sent to ", oldest.get('phone')
+      print "Text sent to ", oldest.get('user')
     else:
       print "Couldn't send text"
 
