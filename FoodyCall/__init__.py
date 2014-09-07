@@ -11,6 +11,7 @@ app.register_blueprint(menu, url_prefix='/menu')
 app.register_blueprint(ratings, url_prefix='/ratings')
 app.register_blueprint(order, url_prefix='/order')
 app.register_blueprint(past_order,url_prefix='/prior')
+app.register_blueprint(past_order,url_prefix='/twilio')
 
 @app.route('/')
 def index():
