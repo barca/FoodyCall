@@ -577,3 +577,9 @@ a.pure-button-primary {
   background: transparent;
 }
 
+select.point {
+  font-size: 0.8em;
+  background: #f1c40f;
+  color: rgba(0,0,0,0.8);
+  font-weight: 100;
+}

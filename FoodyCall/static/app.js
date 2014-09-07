@@ -71,11 +71,7 @@ var AppRouter = Backbone.Router.extend ({
 
       var itemstemplate = $('.second-container #items-template');
       var itemlist = $('.second-container .item-list');
-      var processed = _(searched).where({side: false}).map(function (i) {
-        i.prev = 0;
-        i.rating_avg = (Math.random() * 4 | 0) + 1.5;
-        return i;
-      });
+      var processed = _(searched).where({side: false});
 
       var switcher = $('.foody-switcher span').text();
 
@@ -131,11 +127,7 @@ var AppRouter = Backbone.Router.extend ({
 
       var itemstemplate = $('.third-container #items-template');
       var itemlist = $('.third-container .item-list');
-      var processed = _(data).where({side: true}).map(function (i) {
-        i.prev = 0;
-        i.rating_avg = (Math.random() * 4 | 0) + 1.5;
-        return i;
-      });
+      var processed = _(data).where({side: true});
 
       itemlist.html(_.template(itemstemplate.html(), {items: processed}));
       $('.third-container .item-list .pure-g').click(function (e) {
@@ -258,9 +250,20 @@ var AppRouter = Backbone.Router.extend ({
         $('.rate-container').show();
       }, 500);
 
-      console.log(searched);
-      console.log(itemstemplate);
       itemlist.html(_.template(itemstemplate.html(), {items: searched}));
+      $('.rate-container select.point').change(function (e) {
+        var id = $(e.currentTarget).data('id');
+        var pt = $(e.currentTarget).val();
+
+        $.ajax({
+          type: "POST",
+          url: "/ratings",
+          data: {item: id, rate: pt}
+        }).done(function( msg ) {
+          alert(msg);
+        });
+
+      })
     }
   }
 });
