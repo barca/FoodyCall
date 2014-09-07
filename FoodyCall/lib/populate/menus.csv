@@ -11,13 +11,13 @@ Buffalo chicken tender platter,6.99,0,served with french fries,0,none,0,s
 Barbeque chicken tender platter,6.99,0,served with french fries,0,none,0,s
 Buffalo chicken tender wrap,6.99,0,served with french fries,0,none,0,s
 Barbeque chicken tender wrap,6.99,0,served with french fries,0,none,0,s
-Falafel sandwich,6.99,0,"falafel, lettuce, tomato and tahini on a pita served with french fries",0,none,0,s
-Falafel platter,6.99,0,5 falafel over hummous with cucumber salad and pita,0,none,0,s
+Falafel sandwich,6.99,0,"falafel, lettuce, tomato and tahini on a pita served with french fries",0,vegan,0,s
+Falafel platter,6.99,0,5 falafel over hummous with cucumber salad and pita,0,vegan,0,s
 Beef kebab sandwich,6.99,0,"filling with lettuce, tomato, and tahini on a pita served with french fries",0,none,0,s
 Chicken kebab sandwich,6.99,0,"filling with lettuce, tomato, and tahini on a pita served with french fries",0,none,0,s
 Kebab platter,6.99,0,3 kebabs over rice with a side of vegetables and pita,0,none,0,s
 Tabboulah salad,6.99,0,whole grain bulger wheat with marinated vegetables atop baby spinach,0,none,0,s
-Tangiers cobb salad,6.99,0,"feta, roasted red peppers, kalamata olives, artichoke hearts, and roasted tomatoes atop chopped romaine",0,none,0,s
+Tangiers cobb salad,6.99,0,"feta, roasted red peppers, kalamata olives, artichoke hearts, and roasted tomatoes atop chopped romaine",0,gluten-free,0,s
 Chopped salad,6.99,0,"romain lettuce, crispy chicken, cucumber, red cabbage, tomato, carrots, feta, red onion, and fresh herbs",0,none,0,s
 Chopped salad wrap,6.99,0,"romain lettuce, crispy chicken, cucumber, red cabbage, tomato, carrots, feta, red onion, and fresh herbs",0,none,0,s
 Classic chicken caesar salad,6.99,0,"romaine lettuce, parmesan cheese, grilled chikcen breast, and house baked croutons",0,none,0,s
@@ -42,18 +42,18 @@ pollo taco salad,6.99,0,"cripy tortilla bowl with choice of filling, rice, beans
 carne taco salad,6.99,0,"cripy tortilla bowl with choice of filling, rice, beans, salsa, sour cream, and lettuce",0,none,0,s
 carnitas taco salad,6.99,0,"cripy tortilla bowl with choice of filling, rice, beans, salsa, sour cream, and lettuce",0,none,0,s
 verduras taco salad,6.99,0,"cripy tortilla bowl with choice of filling, rice, beans, salsa, sour cream, and lettuce",0,none,0,s
-Summerfields salad,6.99,0,"mixed greens, grape tomatoes, red onion, shredded carrots, red cabbage and cucumbers topped with dried cranberries, blue cheese crumbles, and candied walnuts",0,none,0,s
+Summerfields salad,6.99,0,"mixed greens, grape tomatoes, red onion, shredded carrots, red cabbage and cucumbers topped with dried cranberries, blue cheese crumbles, and candied walnuts",0,gluten-free,0,s
 Summerfields salad wrap,6.99,0,"mixed greens, grape tomatoes, red onion, shredded carrots, red cabbage and cucumbers topped with dried cranberries, blue cheese crumbles, and candied walnuts",0,none,0,s
-Caprese salad,6.99,0,"mixed greens, ripe tomatoes, and fresh mozzarella cheese with vinagrette and basil aioli",0,vegan:gluten-free,0,s
+Caprese salad,6.99,0,"mixed greens, ripe tomatoes, and fresh mozzarella cheese with vinagrette and basil aioli",0,gluten-free,0,s
 Caprese salad wrap,6.99,0,"mixed greens, ripe tomatoes, and fresh mozzarella cheese with vinagrette and basil aioli",0,none,0,s
-Rice and beans,2.99,0,side,0,none,1,s
-Chips and salsa,2.99,0,side,0,none,1,s
-French fries,2.99,0,side,0,none,1,s
-Shirazi salad,2.99,0,side,0,none,1,s
-Onion rings,3.99,0,side,0,none,1,s
-Side house salad,3.99,0,side,0,none,1,s
-Side cut fruit,3.99,0,side,0,none,1,s
-Hummus and pita,3.99,0,side,0,none,1,s
+Rice and beans,2.99,0,side,0,vegan,1,s
+Chips and salsa,2.99,0,side,0,vegan,1,s
+French fries,2.99,0,side,0,vegan,1,s
+Shirazi salad,2.99,0,side,0,vegan,1,s
+Onion rings,3.99,0,side,0,vegan,1,s
+Side house salad,3.99,0,side,0,vegan:gluten-free,1,s
+Side cut fruit,3.99,0,side,0,vegan:gluten-free,1,s
+Hummus and pita,3.99,0,side,0,vegan,1,s
 Plain jane,7.5,0,burger with lettuce and tomato ,0,none,0,ln 
 Plain jane with cheese,7.95,0,"burger with lettuce, tomato, and american cheese",0,none,0,ln
 Plain jane with mushroom,8.25,0,"burger with lettuce, tomato, sauteed mushrooms, and swiss cheese",0,none,0,ln
@@ -66,9 +66,9 @@ Texican,8.25,0,"burger with southwest seasoning, cheddar cheese, roasted poblano
 Korean,8.25,0,"burger with house made kimchi, cucumbers, and sesame scallion mayonnaise",0,none,0,ln
 Yankee,8.25,0,"burger with melted brie, caramelized onions, apple wood smoked bacon, honey dijonaise, lettuce, and tomato",0,none,0,ln
 Philly,8.25,0,burger with sauteed peppers and onions with provolone and american cheese,0,none,0,ln
-Portabella,7.5,0,"burger with grilled portabella cap, red onion, arugula, roasted red peppers, lettuce, tomato, provolone, and lemon aioli",0,none,0,ln 
-Grateful vegan,8.25,0,"house made quinoa burger, roasted corn, black beans, flax seeds, shaved red onion, grilled tomato, baby arugula, and smashed avocado",0,none,0,ln
-Curried chickpea,7.5,0,"falafel, baby arugula, sliced tomatoes, and cucumbers",0,none,0,ln
+Portabella,7.5,0,"grilled portabella cap, red onion, arugula, roasted red peppers, lettuce, tomato, provolone, and lemon aioli",0,vegan,0,ln 
+Grateful vegan,8.25,0,"house made quinoa burger, roasted corn, black beans, flax seeds, shaved red onion, grilled tomato, baby arugula, and smashed avocado",0,vegan,0,ln
+Curried chickpeas,7.5,0,"falafel, baby arugula, sliced tomatoes, and cucumbers",0,vegan,0,ln
 Buffalo wings,7.25,0,,0,none,0,ln
 chipotle barbecue wings,7.25,0,,0,none,0,ln 
 garlic parmesan wings,7.25,0,,0,none,0,ln 
@@ -92,7 +92,7 @@ tuna melt,6,0,,0,none,0,ln
 three-cheese quesadilla,5.25,0,,0,none,0,ln
 chicken quesadilla,6.5,0,,0,none,0,ln
 chicken fajita wrap,6.25,0,,0,none,0,ln
-Fruit cup,3.95,0,,0,none,1,ln
+Fruit cup,3.95,0,,0,vegan:gluten-free,1,ln
 Yogurt parfait,3.95,0,,0,none,1,ln
 Breakfast burrito,4.75,0,,0,none,0,ln
 Sausage breakfast burrito,5.25,0,,0,none,0,ln
@@ -113,14 +113,14 @@ Late night special,5.5,0,"2 eggs any style, bacon, and buttermilk pancakes",0,no
 Late night special with chocolate chip pancakes,6,0,,0,none,0,ln
 Late night special with blueberry pancakes,6,0,,0,none,0,ln
 Late night special with egg whites and tater tots,6,0,,0,none,0,ln
-Vegan chili,4,0,side,0,none,1,ln
+Vegan chili,4,0,side,0,vegan,1,ln
 Beef chili,4,0,side,0,none,1,ln
-Tater tots,1.5,0,side,0,none,1,ln
-Peanut butter & jelly,2,0,side,0,none,1,ln
-Cereal bowl,2.25,0,side,0,none,1,ln
+Tater tots,1.5,0,side,0,vegan,1,ln
+Peanut butter & jelly,2,0,side,0,vegan,1,ln
+Cereal bowl,2.25,0,side,0,vegan,1,ln
 Chili cheese fries,3.99,0,side,0,none,1,ln
-Sweet potato fries,3.25,0,side,0,none,1,ln
-French fries,2.75,0,side,0,none,1,ln
-Onion rings,4,0,side,0,none,1,ln
+Sweet potato fries,3.25,0,side,0,vegan,1,ln
+French fries,2.75,0,side,0,vegan,1,ln
+Onion rings,4,0,side,0,vegan,1,ln
 Small fried mozzarella (6 pieces),4.25,0,side,0,none,1,ln
 Large fried mozzarella (10 pieces),7.75,0,side,0,none,1,ln
