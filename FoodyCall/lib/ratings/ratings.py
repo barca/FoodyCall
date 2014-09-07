@@ -23,7 +23,7 @@ def index():
 	 			num = item['rater_count']
 	 			avg = (old_avg*num + rating) / (num + 1)
 		 	if avg>0:
-		 	  db.menu_items.update({'_id': new_id}, 
+		 	  db.menu_items.update({'_id': ObjectId(new_id)},
 		 		  {
 		 			  '$set': { 'rating_avg': avg, 'rater_count': num+1 }
 		 		  }

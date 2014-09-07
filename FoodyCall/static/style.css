@@ -300,8 +300,8 @@ a.pure-button-primary {
 
 .first-container {
     z-index: 300;
-    background: #8C1717;
-    background: url(/static/pictures/bg.jpg);
+    background: #e74c3c;
+    background-image: url(/static/pictures/bg.jpg);
     /* background-size: 100%; */
     background-repeat: no-repeat;
 }
