@@ -30,6 +30,11 @@ def send_text(destination,origin,message):
   except:
     return False
 
+def parse(msg):
+  order_number = [int(s) for s in msg.split() if s.isdigit()]
+  num = int(''.join(map(str,order_number)))
+  new_msg = "Thanks for using FoodyCall! Your order number is " + str(num) + "."
+  return new_msg
 
 @smshook.route('', methods = ['GET'])
 def index():
@@ -38,7 +43,7 @@ def index():
                                      "$orderby": {"date"   : -1 } })
 
     # Send an SMS to `oldest.user` with `incoming`
-    result = send_text(oldest.get('user'), ORIGIN, incoming)
+    result = send_text(oldest.get('user'), ORIGIN, parse(incoming))
     if(result):
       print "Text sent to ", oldest.get('user')
     else:
