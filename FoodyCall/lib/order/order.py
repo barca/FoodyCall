@@ -5,6 +5,7 @@ from flask import request
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 import sender
+from datetime import datetime, time
 
 client = MongoClient()
 db = client.menudb
@@ -28,23 +29,22 @@ def index():
   special_requests = request.form.get('special')
   for items in menu_items.find():
     if food_id == str(items['_id']):
-      print('dog')
       msg = items['item']
-      print('msg')
   for items in menu_items.find():
     if side_id == str(items['_id']):
       side = items['item']
-      msg = side + msg
+      msg = msg + " and " + side
   if(len(msg)<=0):
     return jsonify({'ERROR':"ID not found"})
 
-  to_send = msg + special_requests
-  rtn = sender.send_text(phone_num,,to_send) #phone number should be here
+  to_send = msg + ". " +special_requests
+  rtn = sender.send_text(phone_num,"(978) 378-3121",to_send) #phone number should be here
   order= {
-      user : request.form.get('number'),
-      message : to_send,
-      side_id : request.form.get('side_id'),
-      item_id : request.form.get('item_id'),
+      'user' : phone_num,
+      'side_id' : side_id,
+      'item_id' : food_id,
+      'date' : date.now()
+      'replied' : false
       }
   order_history.insert(order)
   if (rtn != 'success'):
