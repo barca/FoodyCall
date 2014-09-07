@@ -2,6 +2,11 @@
 try {
 var options = {extract: function(i) {return i.item;}};
 
+var unmask = function () {
+  var s = $('.splash-input').val();
+  return s.slice(1,4) + s.slice(6,9) + s.slice(11,14);
+};
+
 var timeCheck = function () {
   var now = moment();
   var isBetween = function (m, first, second) {
@@ -28,9 +33,6 @@ var timeCheck = function () {
 
 var data = [];
 
-$.getJSON('/menu/1', function (d) {
-  data = d;
-});
 started = false;
 //define new router class
 var AppRouter = Backbone.Router.extend ({
@@ -44,16 +46,11 @@ var AppRouter = Backbone.Router.extend ({
     },
     'mainOrder': function () {
       if(!started) {this.navigate('',{trigger:true});return;}
-      var unmask = function () {
-        var s = $('.splash-input').val();
-        return s.slice(1,4) + s.slice(6,9) + s.slice(11,14);
-      };
       var router = this;
-      // $.getJSON('/menu/' + unmask(), function (d) {
-      //   data = d;
-      //   router.navigate("");
-      //   router.navigate("mainOrder", {trigger: true});
-      // });
+      $.getJSON('/menu/' + unmask(), function (d) {
+        data = d;
+        console.log('Menu for user fetched.');
+      });
 
       var searched = fuzzy.filter($('#second-header input').val(), data.map(function (i) {
         return i.item;
@@ -221,7 +218,7 @@ var AppRouter = Backbone.Router.extend ({
           item_id: orderedMain.item,
           side_id: orderedSide.item,
           special: localStorage.prevOption,
-          number: localStorage.prevTel,
+          number: unmask()
         };
 
         console.log(toSend);
@@ -328,6 +325,9 @@ $(document).ready(function () {
   $('.splash-input').val(_.isUndefined(prevTel) ? '' : prevTel);
   $('.splash-input').keyup(function (e) {
     localStorage.prevTel = $('.splash-input').val();
+  });
+  $.getJSON('/menu/' + unmask(), function (d) {
+    data = d;
   });
 
   $('#second-header input').keyup(function () {
