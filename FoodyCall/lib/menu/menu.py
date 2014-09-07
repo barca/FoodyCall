@@ -6,7 +6,7 @@ from flask import request
 from pymongo import MongoClient
 import csv
 import sys
-from datetime import datetime
+from datetime import datetime, time
 
 
 # Create Blueprint
@@ -22,9 +22,11 @@ menu_to_serve = "none"
 
 # Get the time and choose which menu to load, then get the collection of items
 now = datetime.now()
-if (now.hour >= 22 and now.hour <= 23) or now.hour == 0:
+print(now.time())
+print(time(21,30))
+if (time(21,30) <= now.time() <= time(23,59)) or (time(00,00) <= now.time() < time(01,00)):
 	menu_to_serve = "latenight"
-elif (now.hour >= 11 and now.hour <= 2) or (now.hour >= 18 and now.hour <= 20) :
+elif (time(11,00) <= now.time() < time(14,00)) or (time(17,30) <= now.time() < time(21,00)) :
 	menu_to_serve = "summies"
 else:
 	print "Invalid time: defaulting to summies for dev purposes"
