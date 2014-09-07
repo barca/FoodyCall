@@ -13,7 +13,11 @@ order_history = db.order_history
 order = Blueprint('order', __name__, template_folder = 'templates')
 @order.route('',methods = ['POST'])
 def index():
- #destination_num = data.get(destination)
+  dest = request.form.get('destination')
+  if(dest == 's'):
+      destination_num = 8607599700
+  else:
+    destination_num = 8607242526
   msg = ""
   phone_num = request.form.get('number')
   food_id = request.form.get('item_id')
@@ -32,7 +36,7 @@ def index():
   if(len(msg)<=0):
     return jsonify({'ERROR':"ID not found"})
   to_send = msg + special_requests
-  rtn = sender.send_text(phone_num, phone_num,to_send)
+  rtn = sender.send_text(phone_num,,to_send)
   order_time = time.time()
   order= {
       user : number,
