@@ -35,12 +35,12 @@ def index():
  	ret = []
 	for item in menu_items.find():
 		if menu_to_serve == "summies":
-			if item["menu"] == "s":
-				item['_id'] = str(item['_id'])
+			if item.get("menu") == "s":
+				item['_id'] = str(item.get('_id'))
  				ret.append(item)
 		elif menu_to_serve == "latenight":
-			if item["menu"] == "ln":
-				item['_id'] = str(item['_id'])
+			if item.get('menu') == "ln":
+				item['_id'] = str(item.get('_id'))
  				ret.append(item)
 		else:
 			print "Error"
@@ -54,10 +54,10 @@ order_history = db.order_history
 def popular(number=9999999999):
 		menulist = []
 		for item in menu_items.find():
-			menulist.append({"_id": str(item['_id']), 
-				"description": item['description'], 
-				"filter": item['filter'], "item": item['item'], 
-				"menu": item['menu'], "price": item['price'], "rater_count": item['rater_count'], 
+			menulist.append({"_id": str(item['_id']),
+				"description": item['description'],
+				"filter": item['filter'], "item": item['item'],
+				"menu": item['menu'], "price": item['price'], "rater_count": item['rater_count'],
 				"rating_avg": item['rating_avg'], "side": item['side'], "count": 0})
 
 			for order in order_history.find():
