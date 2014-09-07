@@ -215,8 +215,8 @@ var AppRouter = Backbone.Router.extend ({
 
         var toSend = {
           destination: orderedMain.menu,
-          item_id: orderedMain.item,
-          side_id: orderedSide.item,
+          item_id: localStorage.mainOrder,
+          side_id: localStorage.sideOrder,
           special: localStorage.prevOption,
           number: unmask()
         };
