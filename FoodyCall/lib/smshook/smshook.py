@@ -7,6 +7,7 @@ from bson.objectid import ObjectId
 from datetime import datetime, time
 from twilio.rest import TwilioRestClient
 from twilio.twiml import Response
+import re
 
 ACCOUNT_SID = "AC726a67eecb3d307a9cc172793aab1104"
 AUTH_TOKEN = "37569632fdf06701470f0d1c27c77a0a"
@@ -31,10 +32,8 @@ def send_text(destination,origin,message):
     return False
 
 def parse(msg):
-  order_number = [int(s) for s in msg.split() if s.isdigit()]
-  num = int(''.join(map(str,order_number)))
-  new_msg = "Thanks for using FoodyCall! Your order number is " + str(num) + "."
-  return new_msg
+  num = re.findall(r'\b\d+\b',msg)[0]
+  return "Thanks for using FoodyCall! Your order number is " + str(num) + "."
 
 @smshook.route('', methods = ['GET'])
 def index():
