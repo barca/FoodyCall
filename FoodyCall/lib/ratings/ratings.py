@@ -28,5 +28,6 @@ def index():
 		 			  '$set': { item['rating_avg']: avg, item['rater_count']: num+1 }
 		 		  }
 		 		)
+		 	avg = 0
 
 	 	return json.dumps(avg)
