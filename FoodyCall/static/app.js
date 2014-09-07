@@ -234,10 +234,12 @@ var AppRouter = Backbone.Router.extend ({
       var itemstemplate = $('.rate-container #items-template');
       var itemlist = $('.rate-container .item-list');
 
-      var searched = fuzzy.filter($('#rate-header input').val(), data.map(function (i) {
+      var searched = _(fuzzy.filter($('#rate-header input').val(), data.map(function (i) {
         return i.item;
       })).map(function(el) {
         return _(data).findWhere({item: el.string});
+      })).sortBy(function (i) {
+        return 5 - i.rating_avg;
       });
 
       $('.header>div').hide();
@@ -250,6 +252,7 @@ var AppRouter = Backbone.Router.extend ({
         $('.rate-container').show();
       }, 500);
 
+      var router = this;
       itemlist.html(_.template(itemstemplate.html(), {items: searched}));
       $('.rate-container select.point').change(function (e) {
         var id = $(e.currentTarget).data('id');
@@ -260,7 +263,14 @@ var AppRouter = Backbone.Router.extend ({
           url: "/ratings",
           data: {item: id, rate: pt}
         }).done(function( msg ) {
-          alert(msg);
+          data = data.map(function (i) {
+            if(i._id === id) {
+              i.rating_avg = parseFloat(msg);
+            }
+            return i;
+          });
+          router.navigate("");
+          router.navigate("rate", {trigger: true});
         });
 
       })
