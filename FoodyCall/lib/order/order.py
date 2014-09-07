@@ -16,9 +16,9 @@ order = Blueprint('order', __name__, template_folder = 'templates')
 def index():
   dest = request.form.get('destination')
   if(dest == 's'):
-      destination_num = 8607599700
+    destination_num = "8607599700" # summies number
   else:
-    destination_num = 8607242526
+    destination_num = "8607242526" # late night number
   msg = "failed request"
   special_requests = ""
   phone_num = request.form.get('number')
