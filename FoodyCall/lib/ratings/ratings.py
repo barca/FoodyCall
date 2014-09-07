@@ -22,12 +22,11 @@ def index():
 	 			old_avg = item['rating_avg']
 	 			num = item['rater_count']
 	 			avg = (old_avg*num + rating) / (num + 1)
-	 	if avg>0:
-	 	  db.menu_items.update({'_id': new_id}, 
-	 		  {
-	 			  '$set': { 'rating_avg': avg}, 
-	 				'$set': { 'rater_count': num+1 }
-	 		  }
-	 		)
+		 	if avg>0:
+		 	  db.menu_items.update({item['_id']: new_id}, 
+		 		  {
+		 			  '$set': { item['rating_avg']: avg, item['rater_count']: num+1 }
+		 		  }
+		 		)
 
 	 	return json.dumps(avg)
