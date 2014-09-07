@@ -71,11 +71,7 @@ var AppRouter = Backbone.Router.extend ({
 
       var itemstemplate = $('.second-container #items-template');
       var itemlist = $('.second-container .item-list');
-      var processed = _(searched).where({side: false}).map(function (i) {
-        i.prev = 0;
-        i.rating_avg = (Math.random() * 4 | 0) + 1.5;
-        return i;
-      });
+      var processed = _(searched).where({side: false});
 
       var switcher = $('.foody-switcher span').text();
 
@@ -131,11 +127,7 @@ var AppRouter = Backbone.Router.extend ({
 
       var itemstemplate = $('.third-container #items-template');
       var itemlist = $('.third-container .item-list');
-      var processed = _(data).where({side: true}).map(function (i) {
-        i.prev = 0;
-        i.rating_avg = (Math.random() * 4 | 0) + 1.5;
-        return i;
-      });
+      var processed = _(data).where({side: true});
 
       itemlist.html(_.template(itemstemplate.html(), {items: processed}));
       $('.third-container .item-list .pure-g').click(function (e) {
@@ -239,7 +231,14 @@ var AppRouter = Backbone.Router.extend ({
     'rate': function () {
       if(!started) {this.navigate('',{trigger:true});return;}
 
-      var data = fuzzy.filter($('#rate-header input').val(), data, options);
+      var itemstemplate = $('.rate-container #items-template');
+      var itemlist = $('.rate-container .item-list');
+
+      var searched = fuzzy.filter($('#rate-header input').val(), data.map(function (i) {
+        return i.item;
+      })).map(function(el) {
+        return _(data).findWhere({item: el.string});
+      });
 
       $('.header>div').hide();
       $('#rate-header').show();
@@ -250,6 +249,21 @@ var AppRouter = Backbone.Router.extend ({
         $('.first-container').removeClass('flip');
         $('.rate-container').show();
       }, 500);
+
+      itemlist.html(_.template(itemstemplate.html(), {items: searched}));
+      $('.rate-container select.point').change(function (e) {
+        var id = $(e.currentTarget).data('id');
+        var pt = $(e.currentTarget).val();
+
+        $.ajax({
+          type: "POST",
+          url: "/ratings",
+          data: {item: id, rate: pt}
+        }).done(function( msg ) {
+          alert(msg);
+        });
+
+      })
     }
   }
 });
@@ -267,7 +281,12 @@ $(document).ready(function () {
   $('#second-header input').keyup(function () {
     appRouter.navigate("");
     appRouter.navigate("mainOrder", {trigger: true});
-  })
+  });
+
+  $('#rate-header input').keyup(function () {
+    appRouter.navigate("");
+    appRouter.navigate("rate", {trigger: true});
+  });
 
   $('.foody-checkbox').click(function (e) {
     var t = $(e.currentTarget);

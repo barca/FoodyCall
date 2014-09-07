@@ -271,16 +271,23 @@
       <div class="item-list">
       </div>
         <script type="text/template" id="items-template">
-        <% items.foreach(function(item) { %>
+        <% items.forEach(function(item) { %>
           <div class="pure-g option" data-id="<%=item._id %>" data-price="<%=item.price %>">
               <div class="pure-u-2-3">
                 <h3><%=item.item %></h3>
-                <%=item.description %>
+                ($<%=item.price %>) <%=item.description %>
               </div>
               <div class="pure-u-1-3" style="font-size:20px">
-                <div style="margin-bottom:10px"><span class="pure-button price-tag"> $<%=item.price %></span><br> </div>
                 <span class="rating">
-                  <%=array(math.floor(item.rating_avg)).join('<i class="fa fa-star"></i>') %><%=((item.rating_avg % 1) >= 0.5) ? '<i class="fa fa-star-half-o"></i>': "" %>
+                <%=item.rating_avg.toFixed(2) %>
+                <div><select data-id="<%=item._id %>" class="pure-button point">
+                    <option value="" disabled selected>Your vote</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select></div>
                 </span>
               </div>
           </div>
