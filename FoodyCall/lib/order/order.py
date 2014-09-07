@@ -43,8 +43,8 @@ def index():
       'user' : phone_num,
       'side_id' : side_id,
       'item_id' : food_id,
-      'date' : date.now(),
-      'replied' : false
+      'date' : datetime.now(),
+      'replied' : "false"
       }
   order_history.insert(order)
   if (rtn != 'success'):
