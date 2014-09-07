@@ -28,7 +28,7 @@ var timeCheck = function () {
 
 var data = [];
 
-$.getJSON('/menu', function (d) {
+$.getJSON('/menu/1', function (d) {
   data = d;
 });
 started = false;
@@ -48,9 +48,12 @@ var AppRouter = Backbone.Router.extend ({
         var s = $('.splash-input').val();
         return s.slice(1,4) + s.slice(6,9) + s.slice(11,14);
       };
-      $.getJSON('/menu/' + unmask(), function (d) {
-        data = d;
-      });
+      var router = this;
+      // $.getJSON('/menu/' + unmask(), function (d) {
+      //   data = d;
+      //   router.navigate("");
+      //   router.navigate("mainOrder", {trigger: true});
+      // });
 
       var searched = fuzzy.filter($('#second-header input').val(), data.map(function (i) {
         return i.item;
@@ -206,23 +209,27 @@ var AppRouter = Backbone.Router.extend ({
       };
       // setTimeout(cb, 2000);
 
-        var orderedMain = _.findWhere({_id: localStorage.mainOrder});
-        var orderedSide = _.findWhere({_id: localStorage.sideOrder});
+        var orderedMain = _(data).findWhere({_id: localStorage.mainOrder});
+        var orderedSide = _(data).findWhere({_id: localStorage.sideOrder});
         if(orderedSide.menu !== orderedMain.menu) {
           console.log('You selected items from different menus.');
           return;
         }
 
+        var toSend = {
+          destination: orderedMain.menu,
+          item_id: orderedMain.item,
+          side_id: orderedSide.item,
+          special: localStorage.prevOption,
+          number: localStorage.prevTel,
+        };
+
+        console.log(toSend);
+
         $.ajax({
           type: "POST",
           url: "/order",
-          data: {
-            destination: orderedMain.menu,
-            item_id: orderedMain.item,
-            side_id: orderedSide.item,
-            special: localStorage.prevOption,
-            number: localStorage.prevTel,
-          }
+          data: toSend,
         }).done(function( msg ) {
           console.log(msg);
           cb();
