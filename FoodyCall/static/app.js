@@ -1,7 +1,8 @@
+(function(){
 try {
 var options = {extract: function(i) {return i.item;}};
 
-timeCheck = function () {
+var timeCheck = function () {
   var now = moment();
   var isBetween = function (m, first, second) {
     return m.isAfter(first) && m.isBefore(second);
@@ -25,7 +26,7 @@ timeCheck = function () {
 
 
 
-data = [];
+var data = [];
 
 $.getJSON('/menu', function (d) {
   data = d;
@@ -43,6 +44,13 @@ var AppRouter = Backbone.Router.extend ({
     },
     'mainOrder': function () {
       if(!started) {this.navigate('',{trigger:true});return;}
+      var unmask = function () {
+        var s = $('.splash-input').val();
+        return s.slice(1,4) + s.slice(6,9) + s.slice(11,14);
+      };
+      $.getJSON('/menu/' + unmask(), function (d) {
+        data = d;
+      });
 
       var searched = fuzzy.filter($('#second-header input').val(), data.map(function (i) {
         return i.item;
@@ -164,6 +172,7 @@ var AppRouter = Backbone.Router.extend ({
         this.navigate('', {trigger: true});
       }
       itemlist.html(_.template(itemstemplate.html(), {
+        timeCheck: timeCheck,
         mainOrder: mainOrder.find('h3').text(),
         sideOrder: sideOrder.find('h3').text(),
         mainPrice: parseFloat(mainOrder.data('price')),
@@ -199,6 +208,10 @@ var AppRouter = Backbone.Router.extend ({
     },
     'repeatLastOrder': function () {
       if(!started) {this.navigate('',{trigger:true});return;}
+      if(_.isNull(localStorage.getItem('mainOrder')) || _.isNull(localStorage.getItem('sideOrder'))) {
+        this.navigate('mainOrder', {trigger: true});
+        return;
+      }
 
       $('.header>div').hide();
       $('#fourth-header').show();
@@ -333,3 +346,4 @@ $(document).ready(function () {
   console.log(e);
   Backbone.history.navigate('#');
 }
+})();
