@@ -4,7 +4,7 @@ var options = {extract: function(i) {return i.item;}};
 
 var unmask = function () {
   var s = $('.splash-input').val();
-  return s.slice(1,4) + s.slice(6,9) + s.slice(11,14);
+  return s.slice(1,4) + s.slice(6,9) + s.slice(10);
 };
 
 var timeCheck = function () {
