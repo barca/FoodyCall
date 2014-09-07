@@ -18,7 +18,7 @@ def index():
       destination_num = 8607599700
   else:
     destination_num = 8607242526
-  msg = ""
+  msg = "failed request"
   phone_num = request.form.get('number')
   food_id = request.form.get('item_id')
   try:
@@ -28,7 +28,9 @@ def index():
   special_requests = request.form.get('special')
   for items in menu_items.find():
     if food_id == str(items['_id']):
+      print('dog')
       msg = items['item']
+      print('msg')
   for items in menu_items.find():
     if side_id == str(items['_id']):
       side = items['item']
@@ -37,14 +39,12 @@ def index():
     return jsonify({'ERROR':"ID not found"})
 
   to_send = msg + special_requests
-  rtn = sender.send_text(phone_num,0,to_send) #phone number should be here
-  order_time = time.time()
+  rtn = sender.send_text(phone_num,,to_send) #phone number should be here
   order= {
-      user : number,
+      user : request.form.get('number'),
       message : to_send,
-      side_id : side_id,
-      item_id : item_id,
-      order_time : order_time
+      side_id : request.form.get('side_id'),
+      item_id : request.form.get('item_id'),
       }
   order_history.insert(order)
   if (rtn != 'success'):

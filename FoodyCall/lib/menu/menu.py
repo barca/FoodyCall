@@ -30,30 +30,21 @@ else:
 	print "Invalid time: defaulting to summies for dev purposes"
 	menu_to_serve = "summies"
 
-@menu.route('', methods = ['GET'])
-def index():
- 	ret = []
-	for item in menu_items.find():
-		if menu_to_serve == "summies":
-			if item.get("menu") == "s":
-				item['_id'] = str(item.get('_id'))
- 				ret.append(item)
-		elif menu_to_serve == "latenight":
-			if item.get('menu') == "ln":
-				item['_id'] = str(item.get('_id'))
- 				ret.append(item)
-		else:
-			print "Error"
-			sys.exit(1)
-
- 	return json.dumps(ret)
-
 order_history = db.order_history
 
 @menu.route('/<number>')
 def popular(number=9999999999):
+
+		filter = {}
+		if menu_to_serve == "summies":
+			filter = {"menu": "s"}
+		elif menu_to_serve == "latenight":
+			filter = {"menu": "ln"}
+		else:
+			filter = {}
+
 		menulist = []
-		for item in menu_items.find():
+		for item in menu_items.find(filter):
 			menulist.append({"_id": str(item['_id']),
 				"description": item['description'],
 				"filter": item['filter'], "item": item['item'],
