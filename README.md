@@ -1,29 +1,16 @@
-FoodyCall.us
-============
+# FoodyCall
 
-Use our intuitive system to skip the line and the wait at Summies and Late Night! [FoodyCallerface for ordering from these Wesleyan dining locations remotely. The entire menus are available for viewing and choosing from, based upon which vendors are currenty open. Users also have the option to add ratings after they have received their orders.
+Use our intuitive system to skip the line and the wait at Summies and Late Night! [FoodyCall](http://foodycall.us) is an interface for ordering from these Wesleyan dining locations remotely. The entire menus are available for viewing and choosing from, based upon which vendors are currenty open. Users also have the option to add ratings after they have received their orders.
 
-navigate to FoodyCall's responsive website to begin
+Simply enter your cell phone number to begin the process, choose the main course, pick your favorite side. Any special needs? We got you. Pay at pick-up with your choice of points or meals. Rate your favorite options, and tear apart the ones you hate. Not sure if it went through? Want to know your order number? Don't worry, we'll text you. Not sure if your favorite place is open? Just navigate to FoodyCall and look at the top. when it's closed you'll see *No FoodyCall* at the top.
 
-simply enter your cell phone number to begin the process
+## Screenshots
 
-chose the main course!
+[You can see the screenshots from here.](https://imgur.com/a/nLEAn/all)
 
-pick your favorite side
-
-any special needs? we got you
-
-pay at pick-up with your choice of points or meals
-
-rate your favorite options, and tear appart the ones you hate
-
-not sure if it went through? want to know your order number? don't worry 
-
-we'll text you
-
-not sure if your favorite place is open? just navigate to FoodyCall and look at the top. when its closed you'll see No FoodyCall at the top
+## Running
 
 To run the application locally:
-1. Populate the menu database by navigating to FoodyCall/lib/populate and running "populate.py".
 
-2. Return to the main directory and run "python runserver.py" to run the application. It will be available at localhost:5000.
+1. Populate the menu database by navigating to `FoodyCall/lib/populate` and running `populate.py`. (depends on the CSV file)
+2. Return to the main directory and run `python runserver.py` to run the application. It will be available at localhost:5000.
