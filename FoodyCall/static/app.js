@@ -239,7 +239,14 @@ var AppRouter = Backbone.Router.extend ({
     'rate': function () {
       if(!started) {this.navigate('',{trigger:true});return;}
 
-      var data = fuzzy.filter($('#rate-header input').val(), data, options);
+      var itemstemplate = $('.rate-container #items-template');
+      var itemlist = $('.rate-container .item-list');
+
+      var searched = fuzzy.filter($('#rate-header input').val(), data.map(function (i) {
+        return i.item;
+      })).map(function(el) {
+        return _(data).findWhere({item: el.string});
+      });
 
       $('.header>div').hide();
       $('#rate-header').show();
@@ -250,6 +257,10 @@ var AppRouter = Backbone.Router.extend ({
         $('.first-container').removeClass('flip');
         $('.rate-container').show();
       }, 500);
+
+      console.log(searched);
+      console.log(itemstemplate);
+      itemlist.html(_.template(itemstemplate.html(), {items: searched}));
     }
   }
 });
@@ -267,7 +278,12 @@ $(document).ready(function () {
   $('#second-header input').keyup(function () {
     appRouter.navigate("");
     appRouter.navigate("mainOrder", {trigger: true});
-  })
+  });
+
+  $('#rate-header input').keyup(function () {
+    appRouter.navigate("");
+    appRouter.navigate("rate", {trigger: true});
+  });
 
   $('.foody-checkbox').click(function (e) {
     var t = $(e.currentTarget);
