@@ -1,6 +1,5 @@
 try {
-
-
+var options = {extract: function(i) {return i.item;}};
 
 timeCheck = function () {
   var now = moment();
@@ -8,7 +7,7 @@ timeCheck = function () {
     return m.isAfter(first) && m.isBefore(second);
   };
   var time = function (h, m) {
-    return now.hour(h).minute(m);
+    return moment(now).hour(h).minute(m);
   };
 
   var weekday = parseInt(now.format('d')); //sun=0, mon=1 ..
@@ -44,6 +43,13 @@ var AppRouter = Backbone.Router.extend ({
     },
     'mainOrder': function () {
       if(!started) {this.navigate('',{trigger:true});return;}
+
+      var searched = fuzzy.filter($('#second-header input').val(), data.map(function (i) {
+        return i.item;
+      })).map(function(el) {
+        return _(data).findWhere({item: el.string});
+      });
+
       var router = this;
       var num = $('.splash-input').val();
 
@@ -65,7 +71,7 @@ var AppRouter = Backbone.Router.extend ({
 
       var itemstemplate = $('.second-container #items-template');
       var itemlist = $('.second-container .item-list');
-      var processed = _(data).where({side: false}).map(function (i) {
+      var processed = _(searched).where({side: false}).map(function (i) {
         i.prev = 0;
         i.rating_avg = (Math.random() * 4 | 0) + 1.5;
         return i;
@@ -233,6 +239,8 @@ var AppRouter = Backbone.Router.extend ({
     'rate': function () {
       if(!started) {this.navigate('',{trigger:true});return;}
 
+      var data = fuzzy.filter($('#rate-header input').val(), data, options);
+
       $('.header>div').hide();
       $('#rate-header').show();
 
@@ -255,6 +263,11 @@ $(document).ready(function () {
   $('.splash-input').keyup(function (e) {
     localStorage.prevTel = $('.splash-input').val();
   });
+
+  $('#second-header input').keyup(function () {
+    appRouter.navigate("");
+    appRouter.navigate("mainOrder", {trigger: true});
+  })
 
   $('.foody-checkbox').click(function (e) {
     var t = $(e.currentTarget);
