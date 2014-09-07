@@ -328,7 +328,14 @@ $(document).ready(function () {
   $('.splash-input').keyup(function (e) {
     localStorage.prevTel = $('.splash-input').val();
   });
-  $.getJSON('/menu/' + unmask(), function (d) {
+  var tel = unmask();
+  var url;
+  if(tel === "") {
+    url = "/menu/0";
+  } else {
+    url = "/menu/" + unmask();
+  }
+  $.getJSON(url, function (d) {
     data = d;
   });
 
