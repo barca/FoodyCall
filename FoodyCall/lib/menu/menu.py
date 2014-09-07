@@ -53,7 +53,7 @@ def popular(number=9999999999):
 
 			for order in order_history.find():
 				if str(number) == str(order['user']):
-					if order['item_id'] == item['item_id']:
+					if order['item_id'] == item['_id']:
 						item['count'] = item['count'] + 1
 		return json.dumps(menulist)
 
