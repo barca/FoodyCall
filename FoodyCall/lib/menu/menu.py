@@ -7,6 +7,7 @@ from pymongo import MongoClient
 import csv
 import sys
 from datetime import datetime, time
+import pytz
 
 
 # Create Blueprint
@@ -21,7 +22,9 @@ menu_items = db.menu_items
 menu_to_serve = "none"
 
 # Get the time and choose which menu to load, then get the collection of items
-now = datetime.now()
+#now = datetime.now()
+#fmt = "%Y-%m-%d %H:%M:%S %Z%z"
+now = datetime.now(pytz.timezone('US/Eastern'))
 if (time(21,30) <= now.time() <= time(23,59)) or (time(00,00) <= now.time() < time(01,00)):
 	menu_to_serve = "latenight"
 elif (time(11,00) <= now.time() < time(14,00)) or (time(17,30) <= now.time() < time(21,00)) :
