@@ -26,10 +26,10 @@ timeCheck = function () {
   if(isBetween(now, time(17,30), time(21,0))) {
     return "Summies Dinner";
   }
-  if(isBetween(now, time(21,30), time(23,59).add(1, 'd'))) {
+  if(isBetween(now, time(21,30), time(23,59))) {
     return "Late Night";
   }
-  if(isBetween(now, time(0,0), time(1,0).add(1, 'd'))) {
+  if(isBetween(now, time(00,00), time(01,00))) {
     return "Late Night";
   }
   return "No";
