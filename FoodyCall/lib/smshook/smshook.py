@@ -9,9 +9,6 @@ from twilio.rest import TwilioRestClient
 from twilio.twiml import Response
 import re
 
-ACCOUNT_SID = "AC726a67eecb3d307a9cc172793aab1104"
-AUTH_TOKEN = "37569632fdf06701470f0d1c27c77a0a"
-ORIGIN = "9783783121"
 
 client = MongoClient()
 db = client.menudb
