@@ -9,7 +9,9 @@ from twilio.rest import TwilioRestClient
 from twilio.twiml import Response
 import re
 
-
+#ACCOUNT_SID = key
+#AUTH_TOKEN = key
+#ORIGIN = phone num
 client = MongoClient()
 db = client.menudb
 menu_items = db.menu_items
