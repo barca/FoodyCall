@@ -1,8 +1,8 @@
 import twilio
 from twilio.rest import TwilioRestClient
 
-ACCOUNT_SID = "AC726a67eecb3d307a9cc172793aab1104"
-AUTH_TOKEN = "37569632fdf06701470f0d1c27c77a0a"
+#ACCOUNT_SID = key1
+#AUTH_TOKEN = key2
 
 def send_text(destination,origin,message):
   try:
